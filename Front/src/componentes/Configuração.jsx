@@ -55,18 +55,18 @@ export default function Configuração() {
     <hr />
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="">Nome</label>
+        <label htmlFor="username">Nome</label>
         <input type="text" id='username' name='username' 
         onChange={handleChange} value={dados.username} />
       </div>
       <div>
-        <label htmlFor="">Email</label>
+        <label htmlFor="email">Email</label>
         <input type="text" id='email' name='email' 
         onChange={handleChange} value={dados.email} />
       </div>
       <div>
-        <label htmlFor="">Senha</label>
-        <input type="text" id='password' name='password' 
+        <label htmlFor="password">Senha</label>
+        <input type="password" id='password' name='password' 
         onChange={handleChange} value={dados.password} />
       </div>
       
