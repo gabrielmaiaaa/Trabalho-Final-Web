@@ -3,7 +3,7 @@ import {set, useForm} from 'react-hook-form'; //npm i react-hook-form
 import { yupResolver } from "@hookform/resolvers/yup"; //npm i @hookform/resolvers
 import * as yup from "yup"; //npm i yup
 import axios from 'axios';//npm i axios
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 const schema = yup.object({
   username: yup.string().required('Usuário obrigatório'),
@@ -57,6 +57,7 @@ export default function CreateUser() {
 
         <button>Registrar</button>
       </form>
+      <Link to='/'>Voltar</Link>
     </>
   )
 }
