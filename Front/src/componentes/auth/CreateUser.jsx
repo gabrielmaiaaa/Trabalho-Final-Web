@@ -6,8 +6,8 @@ import axios from 'axios';//npm i axios
 import { Navigate } from 'react-router-dom';
 
 const schema = yup.object({
-  username: yup.string().required('Usuário Obrigatório'),
-  email: yup.string().email('Email invalido').required('Email ovrigatório'),
+  username: yup.string().required('Usuário obrigatório'),
+  email: yup.string().email('Email invalido').required('Email obrigatório'),
   password: yup.string().min(4, 'Senha com no mínimo 4 caracteres').required(),
   passwordConf: yup.string().required('Confirme a senha').oneOf([yup.ref('password')], 'As senhas devem ser iguais!'),
 }).required();

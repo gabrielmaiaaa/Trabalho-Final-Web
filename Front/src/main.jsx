@@ -8,6 +8,7 @@ import CreateUser from './componentes/auth/CreateUser.jsx'
 import LoginUser from './componentes/auth/LoginUser.jsx'
 import Configuração from './componentes/Configuração.jsx'
 import Votação from './componentes/Votação.jsx'
+import ListaJogos from './componentes/ListaJogos.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
         element: <CreateUser />
       }
     ]
+  },
+  {
+    path: '/listajogos',
+    element: <ListaJogos />
   },
   {
     path: '/votação',
