@@ -1,9 +1,79 @@
 import React from 'react'
+import {Link, Navigate, useLocation} from 'react-router-dom' //npm i react-router-dom
+import { useState } from 'react';
+import axios from 'axios'
 
 export default function Configuração() {
+
+  // const [msg, setMsg] = useState('');
+
+  // const {id, username, email, password} = useLocation().state;
+
+  // const [dados, setDados] = useState({
+  //   id,
+  //   username,
+  //   email,
+  //   password
+  // });
+
+  // const handleChange = (e) => {
+  //   const novoValor = {
+  //     [e.target.name] : e.target.value
+  //   }
+
+  //   setDados({
+  //     ...dados,
+  //     ...novoValor
+  //   });
+  // }
+
+  // const config = {
+  //   headers: {
+  //     Authorization : "Bearer " + sessionStorage.getItem('token')
+  //   }
+  // }
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try{
+  //     const estado = await axios.put('', dados, config);
+  //     if(estado.status === 200){
+  //       setMsg('OK');
+  //     }
+  //   }catch (error){
+  //     console.log(error);
+  //   }
+  // }
+
+  // if(msg === 'OK')
+  //   return <Navigate to='/' /> 
+  // onSubmit={handleSubmit}
+        // onChange={handleChange} value={dados.username} 
+        // onChange={handleChange} value={dados.email}
+        // onChange={handleChange} value={dados.password}
+
   return (
     <>
-    
+    <h1>Dados Pessoais</h1>
+    <hr />
+    <form>
+      <div>
+        <label htmlFor="username">Nome</label>
+        <input type="text" id='username' name='username'/>
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input type="text" id='email' name='email'  />
+      </div>
+      <div>
+        <label htmlFor="password">Senha</label>
+        <input type="password" id='password' name='password'  />
+      </div>
+      
+      <Link to='/'>Voltar</Link>
+      <button>Salvar</button>
+    </form>
     </>
   )
 }
