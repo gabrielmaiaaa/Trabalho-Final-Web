@@ -12,7 +12,7 @@ const schema = yup.object({
 
 export default function LoginUser() {
   
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState(' ');
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -24,7 +24,7 @@ export default function LoginUser() {
 
   const submit = async (data) => {
     try{
-      const response = await axios.post('', data);
+      const response = await axios.post('http://localhost:3000/auth/login', data);
       sessionStorage.setItem('token', response.data);
       setMsg('Usuário Autenticado');
     } catch (error){

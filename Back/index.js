@@ -16,6 +16,9 @@ const votacoesRoutes = require('./router/votacoes');
 //importar rotas autenticacao
 const authRoutes = require('./router/auth');
 
+//importar rotas autenticacao
+const atualizarDadosRoutes = require('./router/atualizarDados');
+
 //rotas para os dois serviços
 app.use('/auth', authRoutes);
 app.use('/votacoes', votacoesRoutes);
