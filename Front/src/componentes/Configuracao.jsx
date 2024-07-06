@@ -3,18 +3,19 @@ import {Link, Navigate, useLocation} from 'react-router-dom' //npm i react-route
 import { useState } from 'react';
 import axios from 'axios'
 
-export default function Configuracao({id,username,email,password}) {
+export default function Configuracao() {
 
   const [msg, setMsg] = useState('');
 
-  // const {id, username, email, password} = useLocation().state;
+  const {id, username, email, password, admin} = useLocation().state;
   // const {id, username, email, password} = useLocation().state || {};
 
   const [dados, setDados] = useState({
     id,
     username,
     email,
-    password
+    password,
+    admin
   });
 
   const handleChange = (e) => {
@@ -51,9 +52,10 @@ export default function Configuracao({id,username,email,password}) {
     let c = confirm(`Deseja excluir a conta ${username}?`);
     if(c === true){
       try {
-        const resposta = await axios.delete(`http://localhost:3000/atualizarDados/deletar-dados/${id}`, config);
-        if(resposta.status === 200)
-          location.reload();
+        const resposta = await axios.delete(`http://localhost:3000/atualizarDados/deletar-dados/${email}`, config);
+        if(resposta.status === 200){
+          setMsg('OK');
+        }
       } catch (error) {
         console.log(error);
       }

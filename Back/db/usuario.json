@@ -1,23 +1,15 @@
 [
   {
     "id": 1,
-    "username": "Caioba",
-    "email": "d2021032322@unifei.edu.br",
-    "password": "$2b$10$zFMiCspHlhX2364vor1Qb.CKM0VXDt3lq5E.73E0kG80xpp2vlQpe",
-    "admin": 1
-  },
-  {
-    "id": 2,
     "username": "Maia",
     "email": "joaozin@gmail.com",
-    "password": "$2b$10$6Hjz4UbSpquHWnHfoFkYAOb354/sf//dJ9PaOjSdX3bI6xA/VWIzy",
+    "password": "$2b$10$lhifBjl7npFWn01VfuHu0.HRBAMJSFil/CI/Ptc3yHk.Hw.aTlbnu",
     "admin": 0
   },
   {
     "id": 3,
-    "username": "Mamaia",
-    "email": "gmaraujo10@gmail.com",
-    "password": "$2b$10$xQyMH7nlMdls5b6xZ7tb5eV5KazLdHrLA1wcs07undh36Z8fL3cMu",
-    "admin": 0
+    "username": "krjkfgkbhgbf807",
+    "email": "gabrielmaia44.ofc@gmail.com",
+    "password": "$2b$10$kzjoKftxHAMhWc1yzcil5eQUFURzx5o3gvgfv3NnCC4re0nC1EsPi"
   }
 ]

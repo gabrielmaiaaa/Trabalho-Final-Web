@@ -1,14 +1,11 @@
 const express = require('express');
-
 const router =express.Router();
-
 const fs = require('fs');
 const path = require('path');
-
 const jwt = require('jsonwebtoken');
 
 const bdPath = path.join(__dirname, '..', 'db', 'usuario.json');
-const usauarios = JSON.parse(fs.readFileSync(bdPath, {encoding: 'utf-8'}));
+const usuarios = JSON.parse(fs.readFileSync(bdPath, {encoding: 'utf-8'}));
 
 router.get('/pegar-dados', autenticadorToken, (req, res) => {
     const userId = req.user.id; // Assume que o ID do usuário está no token decodificado
@@ -25,42 +22,41 @@ router.get('/pegar-dados', autenticadorToken, (req, res) => {
 })
 
 router.put('/atualizar-dados', autenticadorToken, (req,res) => {
-    const {id, username, email, password} = req.body;
+    const {id, username, email, password, admin} = req.body;
 
     const novoDados = {
         id,
         username,
         email,
-        password
+        password,
+        admin
     }
 
     const acharUser = (p) => {
-        return p.id === Number(id);
+        return p.email === email;
     }
 
-    const index = usauarios.findIndex(acharUser);
+    const index = usuarios.findIndex(acharUser);
 
-    usauarios.splice(index, 1, novoDados);
-
-    fs.writeFileSync(bdPath, JSON.stringify(usauarios,null,2));
-
+    usuarios.splice(index, 1, novoDados);
+    fs.writeFileSync(bdPath, JSON.stringify(usuarios,null,2));
     res.status(200).send('Usuário Atualizado');
 });
 
-router.delete('/deletar-dados/:id', autenticadorToken, (req,res) => {
-    const {id} = req.params;
+router.delete('/deletar-dados/:email', autenticadorToken, (req,res) => {
+    const {email} = req.params;
 
     const acharIndex = (p) => {
-        return p.id = Number(id);
+        return p.email === email;
     }
 
-    const index = usauarios.findIndex(acharIndex);
+    const index = usuarios.findIndex(acharIndex);
 
-    usauarios.splice(index, 1);
+    console.log('Índice encontrado:', index);
 
-    fs.writeFileSync(bdPath, JSON.stringify(usauarios, null, 2));
-
-    res.status(200).send('Usuário Removido');
+    usuarios.splice(index, 1);
+    fs.writeFileSync(bdPath, JSON.stringify(usuarios, null, 2));
+    return res.status(200).send('Usuário Removido');
 });
 
 function autenticadorToken(req, res, next){

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom' //npm i react-router-dom
 import Configuracao from './Configuracao';
 
 export default function ListaJogos({email}) {
@@ -31,7 +32,7 @@ export default function ListaJogos({email}) {
 
   return (
     <>
-      <Configuracao key={user.email} {...user} />
+    <button><Link to='/configuracao' state={{...user}}>Configuração</Link></button>
     </>
   )
 }

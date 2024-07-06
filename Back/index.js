@@ -22,6 +22,7 @@ const atualizarDadosRoutes = require('./router/atualizarDados');
 //rotas para os dois serviços
 app.use('/auth', authRoutes);
 app.use('/votacoes', votacoesRoutes);
+app.use('/atualizarDados', atualizarDadosRoutes);
 
 app.listen(3000, ()=>{
     console.log('Servidor Online');
