@@ -6,8 +6,8 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import CreateUser from './componentes/auth/CreateUser.jsx'
 import LoginUser from './componentes/auth/LoginUser.jsx'
-import Configuração from './componentes/Configuracao.jsx'
-import Votação from './componentes/Votacao.jsx'
+import Configuracao from './componentes/Configuracao.jsx'
+import Votacao from './componentes/Votacao.jsx'
 import ListaJogos from './componentes/ListaJogos.jsx'
 
 const routes = createBrowserRouter([
@@ -31,11 +31,11 @@ const routes = createBrowserRouter([
   },
   {
     path: '/votacao',
-    element: <Votação />
+    element: <Votacao />
   },
   {
     path: '/configuracao',
-    element: <Configuração />
+    element: <Configuracao />
   }
 ]);
 

@@ -22,6 +22,14 @@ const User = require('../models/User');
 //dotenv
 require('dotenv').config();
 
+router.get('/usuarios', (req,res) =>{
+
+    //Devolve as propriedades em formato JSON
+    res.status(200).json(usuariosCadastrados);
+
+});
+
+
 //requisição POST para autenticar usuário.
 //rota pública
 router.post('/login', async (req,res) => {
@@ -41,6 +49,7 @@ router.post('/login', async (req,res) => {
                 //O primeiro parametro é o que queremos serializar (o proprio user)
                 //O segundo parametro é a chave secreta do token. Está no arquivo .env
                 //La coloquei as instruções de como gerar
+                console.log('FAZ O L');
                 const tokenAcesso = jwt.sign(user,process.env.TOKEN);
                 return res.status(200).json(tokenAcesso);
             }

@@ -15,7 +15,7 @@ const schema = yup.object({
 
 export default function CreateUser() {
 
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState();
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -27,7 +27,7 @@ export default function CreateUser() {
 
   const submit = async (data) => {
     try{
-      const response = await axios.post('', data);
+      const response = await axios.post('http://localhost:3000/auth/create', data);
       if(response.status === 200)
         setMsg('OK');
     }catch (error){
@@ -57,6 +57,7 @@ export default function CreateUser() {
 
         <button>Registrar</button>
       </form>
+      <p className='server-response'>{msg}</p>
       <Link to='/'>Voltar</Link>
     </>
   )
