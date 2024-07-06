@@ -12,5 +12,12 @@
     "email": "joaozin@gmail.com",
     "password": "$2b$10$6Hjz4UbSpquHWnHfoFkYAOb354/sf//dJ9PaOjSdX3bI6xA/VWIzy",
     "admin": 0
+  },
+  {
+    "id": 3,
+    "username": "Mamaia",
+    "email": "gmaraujo10@gmail.com",
+    "password": "$2b$10$xQyMH7nlMdls5b6xZ7tb5eV5KazLdHrLA1wcs07undh36Z8fL3cMu",
+    "admin": 0
   }
 ]

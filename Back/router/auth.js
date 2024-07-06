@@ -41,6 +41,7 @@ router.post('/login', async (req,res) => {
                 //O primeiro parametro é o que queremos serializar (o proprio user)
                 //O segundo parametro é a chave secreta do token. Está no arquivo .env
                 //La coloquei as instruções de como gerar
+                console.log('FAZ O L');
                 const tokenAcesso = jwt.sign(user,process.env.TOKEN);
                 return res.status(200).json(tokenAcesso);
             }

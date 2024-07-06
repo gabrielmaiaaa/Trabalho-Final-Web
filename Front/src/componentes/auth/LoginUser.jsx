@@ -26,6 +26,14 @@ export default function LoginUser() {
     try{
       const response = await axios.post('http://localhost:3000/auth/login', data);
       sessionStorage.setItem('token', response.data);
+      console.log('oii');
+      const userData = await axios.get('http://localhost:3000/atualizarDados/pegar-dados', {
+        headers: {
+          Authorization: `Bearer ${response.data.token}`
+        }
+      });
+      localStorage.setItem('idAtual', userData.data.id);
+      console.log('oiiii');
       setMsg('Usuário Autenticado');
     } catch (error){
       console.log(error.response.data);

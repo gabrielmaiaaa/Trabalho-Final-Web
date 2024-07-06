@@ -3,7 +3,7 @@ import {Link, Navigate, useLocation} from 'react-router-dom' //npm i react-route
 import { useState } from 'react';
 import axios from 'axios'
 
-export default function Configuração() {
+export default function Configuracao() {
 
   const [msg, setMsg] = useState('');
 

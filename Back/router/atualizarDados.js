@@ -10,6 +10,20 @@ const jwt = require('jsonwebtoken');
 const bdPath = path.join(__dirname, '..', 'db', 'usuario.json');
 const usauarios = JSON.parse(fs.readFileSync(bdPath, {encoding: 'utf-8'}));
 
+router.get('/pegar-dados', autenticadorToken, (req, res) => {
+    const userId = req.user.id; // Assume que o ID do usuário está no token decodificado
+
+  const user = usuarios.find(u => u.id === userId);
+
+  if (!user) {
+    return res.status(404).json({ message: 'Usuário não encontrado' });
+  }
+
+  res.json({
+    id: user.id,
+  });
+})
+
 router.put('/atualizar-dados', autenticadorToken, (req,res) => {
     const {id, username, email, password} = req.body;
 
