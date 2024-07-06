@@ -11,5 +11,12 @@
     "username": "krjkfgkbhgbf807",
     "email": "gabrielmaia44.ofc@gmail.com",
     "password": "$2b$10$kzjoKftxHAMhWc1yzcil5eQUFURzx5o3gvgfv3NnCC4re0nC1EsPi"
+  },
+  {
+    "id": 3,
+    "username": "caio",
+    "email": "caioba@gmail.com",
+    "password": "$2b$10$0XlhE/NT0eOLz6nBy3ZbUOoLTBSVkGhON8Ii1ExtgADWDxmS3oS3O",
+    "admin": 0
   }
 ]
