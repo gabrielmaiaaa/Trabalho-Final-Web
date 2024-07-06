@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup"; //npm i @hookform/resolve
 import * as yup from "yup"; //npm i yup
 import axios from 'axios';//npm i axios
 import { Link, Navigate } from 'react-router-dom';
+import ListaJogos from '../ListaJogos.jsx'
 
 const schema = yup.object({
   email: yup.string().email('Email inválida').required('Email obrigatório'),
@@ -13,6 +14,7 @@ const schema = yup.object({
 export default function LoginUser() {
   
   const [msg, setMsg] = useState(' ');
+  const [email, setEmail] = useState(' ');
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -26,14 +28,7 @@ export default function LoginUser() {
     try{
       const response = await axios.post('http://localhost:3000/auth/login', data);
       sessionStorage.setItem('token', response.data);
-      console.log('oii');
-      const userData = await axios.get('http://localhost:3000/atualizarDados/pegar-dados', {
-        headers: {
-          Authorization: `Bearer ${response.data.token}`
-        }
-      });
-      localStorage.setItem('idAtual', userData.data.id);
-      console.log('oiiii');
+      setEmail(data.email);
       setMsg('Usuário Autenticado');
     } catch (error){
       console.log(error.response.data);
@@ -41,7 +36,7 @@ export default function LoginUser() {
   }
 
   if(msg.includes('Usuário Autenticado'))
-    return <Navigate to='/listajogos' />
+    return <ListaJogos email={email} />;
 
   return (
     <>

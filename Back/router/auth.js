@@ -22,6 +22,14 @@ const User = require('../models/User');
 //dotenv
 require('dotenv').config();
 
+router.get('/usuarios', (req,res) =>{
+
+    //Devolve as propriedades em formato JSON
+    res.status(200).json(usuariosCadastrados);
+
+});
+
+
 //requisição POST para autenticar usuário.
 //rota pública
 router.post('/login', async (req,res) => {

@@ -3,11 +3,11 @@ import {Link, Navigate, useLocation} from 'react-router-dom' //npm i react-route
 import { useState } from 'react';
 import axios from 'axios'
 
-export default function Configuracao() {
+export default function Configuracao({id,username,email,password}) {
 
   const [msg, setMsg] = useState('');
 
-  const {id, username, email, password} = useLocation().state;
+  // const {id, username, email, password} = useLocation().state;
   // const {id, username, email, password} = useLocation().state || {};
 
   const [dados, setDados] = useState({

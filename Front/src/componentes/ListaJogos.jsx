@@ -1,11 +1,37 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import Configuracao from './Configuracao';
 
-export default function ListaJogos() {
+export default function ListaJogos({email}) {
+
+  const [propriedades, setPropriedades] = useState([]);
+  const [user, setUser] = useState();
+
+    useEffect(() =>{
+        
+        async function buscaPropriedades(){
+            const dado = await axios.get('http://localhost:3000/auth/usuarios');
+            //Armazenar a resposta em um state
+            setPropriedades(dado.data);
+            console.log(dado.data);
+        }
+        buscaPropriedades();
+    },[]);
+    
+    useEffect(() => {
+      const usuario = propriedades.find(p => p.email === email);
+      setUser(usuario);
+    }, [propriedades, email]);
+
+    if (!user) {
+      console.log("Carregando ou usuário não encontrado...");
+      return <p>Carregando ou usuário não encontrado...</p>;
+    }
+
   return (
     <>
-      <p>oi</p>
-      <Link to='/configuracao' state={user}>Config</Link>
+      <Configuracao key={user.email} {...user} />
     </>
   )
 }
