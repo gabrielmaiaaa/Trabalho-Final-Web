@@ -13,6 +13,12 @@ import PaginaInicial from './componentes/Site/PaginaInicial.jsx'
 import CriarListaJogos from './componentes/ListasVotacao/CriarListaJogos.jsx'
 import VerListaJogo from './componentes/ListasVotacao/VerListaJogo.jsx'
 import Resultados from './componentes/ListasVotacao/Resultados.jsx'
+import IdentidadeVisual from './componentes/Categorias/IdentidadeVisual.jsx'
+import Polimento from './componentes/Categorias/Polimento.jsx'
+import GameDesign from './componentes/Categorias/GameDesign.jsx'
+import Jogabilidade from './componentes/Categorias/Jogabilidade.jsx'
+import Originalidade from './componentes/Categorias/Originalidade.jsx'
+import Tema from './componentes/Categorias/Tema.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -54,8 +60,28 @@ const routes = createBrowserRouter([
     element: <Votacao />
   },
   {
-    path: '/resultados',
-    element: <Resultados />
+    path: '/identidade-visual',
+    element: <IdentidadeVisual />
+  },
+  {
+    path: '/polimento',
+    element: <Polimento />
+  },
+  {
+    path: '/game-design',
+    element: <GameDesign />
+  },
+  {
+    path: '/jogabilidade',
+    element: <Jogabilidade />
+  },
+  {
+    path: '/originalidade',
+    element: <Originalidade />
+  },
+  {
+    path: '/tema',
+    element: <Tema />
   }
 ]);
 

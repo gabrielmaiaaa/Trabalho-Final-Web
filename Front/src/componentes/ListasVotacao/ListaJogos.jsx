@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom' //npm i react-router-dom
 
-export default function ListaJogos({id, username, email, password, admin}) {
+export default function ListaJogos({id, titulo, descricao}) {
 
   return (
     <>
-      <p>{username}</p>
+      <p>{titulo}</p>
       <button><Link to='/verListaJogo'>Acessar</Link></button>
     </>
   )

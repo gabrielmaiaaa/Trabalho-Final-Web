@@ -1,8 +1,7 @@
 class Lista {
-    constructor(id, titulo, tipo, descricao){
+    constructor(id, titulo, descricao){
         this.id = id;
         this.titulo = titulo;
-        this.tipo = tipo;
         this.descricao = descricao;
         this.jogos = [];
     }

@@ -45,12 +45,15 @@ export default function CreateUser() {
         <label htmlFor="username">Nome</label>
         <input type="text" id='username' {...register('username')} />
         <p className='erro'> {errors.username?.message} </p>
+        
         <label htmlFor="email">Email</label>
         <input type="text" id='email' {...register('email')} />
         <p className='erro'> {errors.email?.message} </p>
+
         <label htmlFor="password">Senha</label>
         <input type="password" id='password' {...register('password')} />
         <p className='erro'> {errors.password?.message} </p>
+
         <label htmlFor="passwordConf">Confirmar Senha</label>
         <input type="password" id='passwordConf' {...register('passwordConf')} />
         <p className='erro'> {errors.passwordConf?.message} </p>

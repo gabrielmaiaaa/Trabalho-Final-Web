@@ -8,6 +8,7 @@ import ListaJogos from '../ListasVotacao/ListaJogos';
 export default function PaginaInicial({email}) {
 
   const [propriedades, setPropriedades] = useState([]);
+  const [dadosListas, setDadosListas] = useState([]);
   const [user, setUser] = useState();
 
     useEffect(() =>{
@@ -20,6 +21,14 @@ export default function PaginaInicial({email}) {
         }
         buscaPropriedades();
     },[]);
+
+    useEffect(() => {
+      async function buscaLista(){
+        const list = await axios.get('http://localhost:3000/listas/dados');
+        setDadosListas(list.data);
+      }
+      buscaLista();
+    }, []);
     
     useEffect(() => {
       const usuario = propriedades.find(p => p.email === email);
@@ -34,7 +43,7 @@ export default function PaginaInicial({email}) {
     <>
     <div>
       {
-        propriedades.map(p => <ListaJogos key={p.id} {...p} />)
+        dadosListas.map(p => <ListaJogos key={p.id} {...p} />)
       }
     </div>
     <button><Link to='/criarListaJogos'>Criar Lista</Link></button>
