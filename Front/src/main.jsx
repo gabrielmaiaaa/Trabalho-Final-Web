@@ -6,10 +6,13 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import CreateUser from './componentes/auth/CreateUser.jsx'
 import LoginUser from './componentes/auth/LoginUser.jsx'
-import Configuracao from './componentes/Configuracao.jsx'
-import Votacao from './componentes/Votacao.jsx'
-import ListaJogos from './componentes/ListaJogos.jsx'
-import PaginaInicial from './componentes/PaginaInicial.jsx'
+import Configuracao from './componentes/Site/Configuracao.jsx'
+import Votacao from './componentes/ListasVotacao/Votacao.jsx'
+import ListaJogos from './componentes/ListasVotacao/ListaJogos.jsx'
+import PaginaInicial from './componentes/Site/PaginaInicial.jsx'
+import CriarListaJogos from './componentes/ListasVotacao/CriarListaJogos.jsx'
+import VerListaJogo from './componentes/ListasVotacao/VerListaJogo.jsx'
+import Resultados from './componentes/ListasVotacao/Resultados.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -27,20 +30,32 @@ const routes = createBrowserRouter([
     ]
   },
   {
+    path: '/paginaInicial',
+    element: <PaginaInicial />
+  },
+  {
+    path: '/configuracao',
+    element: <Configuracao />
+  },
+  {
     path: '/listajogos',
     element: <ListaJogos />
   },
   {
-    path: '/paginaInicial',
-    element: <PaginaInicial />
+    path: '/criarListaJogos',
+    element: <CriarListaJogos />
+  },
+  {
+    path: '/verListaJogo',
+    element: <VerListaJogo />
   },
   {
     path: '/votacao',
     element: <Votacao />
   },
   {
-    path: '/configuracao',
-    element: <Configuracao />
+    path: '/resultados',
+    element: <Resultados />
   }
 ]);
 

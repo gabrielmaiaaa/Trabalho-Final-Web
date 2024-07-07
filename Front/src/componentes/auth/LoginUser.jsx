@@ -4,8 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup"; //npm i @hookform/resolve
 import * as yup from "yup"; //npm i yup
 import axios from 'axios';//npm i axios
 import { Link, Navigate } from 'react-router-dom';
-import ListaJogos from '../ListaJogos.jsx'
-import PaginaInicial from '../PaginaInicial.jsx';
+import ListaJogos from '../ListasVotacao/ListaJogos.jsx'
+import PaginaInicial from '../Site/PaginaInicial.jsx';
 
 const schema = yup.object({
   email: yup.string().email('Email inválida').required('Email obrigatório'),

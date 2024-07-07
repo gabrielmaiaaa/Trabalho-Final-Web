@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom' //npm i react-router-dom
 import Configuracao from './Configuracao';
-import ListaJogos from './ListaJogos';
+import ListaJogos from '../ListasVotacao/ListaJogos';
 
 export default function PaginaInicial({email}) {
 
@@ -37,6 +37,7 @@ export default function PaginaInicial({email}) {
         propriedades.map(p => <ListaJogos key={p.id} {...p} />)
       }
     </div>
+    <button><Link to='/criarListaJogos'>Criar Lista</Link></button>
     <button><Link to='/configuracao' state={{...user}}>Configuração</Link></button>
     </>
   )
