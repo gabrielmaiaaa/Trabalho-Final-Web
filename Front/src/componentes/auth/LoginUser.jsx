@@ -5,6 +5,7 @@ import * as yup from "yup"; //npm i yup
 import axios from 'axios';//npm i axios
 import { Link, Navigate } from 'react-router-dom';
 import ListaJogos from '../ListaJogos.jsx'
+import PaginaInicial from '../PaginaInicial.jsx';
 
 const schema = yup.object({
   email: yup.string().email('Email inválida').required('Email obrigatório'),
@@ -36,7 +37,7 @@ export default function LoginUser() {
   }
 
   if(msg.includes('Usuário Autenticado'))
-    return <ListaJogos email={email} />;
+    return <PaginaInicial email={email} />;
 
   return (
     <>

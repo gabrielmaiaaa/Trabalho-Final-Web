@@ -28,12 +28,15 @@ export default function PaginaInicial({email}) {
 
     if (!user) {
       console.log("Carregando ou usuário não encontrado...");
-      return <p>Carregando ou usuário não encontrado...</p>;
     }
 
   return (
     <>
-    <ListaJogos />
+    <div>
+      {
+        propriedades.map(p => <ListaJogos key={p.id} {...p} />)
+      }
+    </div>
     <button><Link to='/configuracao' state={{...user}}>Configuração</Link></button>
     </>
   )

@@ -9,6 +9,7 @@ import LoginUser from './componentes/auth/LoginUser.jsx'
 import Configuracao from './componentes/Configuracao.jsx'
 import Votacao from './componentes/Votacao.jsx'
 import ListaJogos from './componentes/ListaJogos.jsx'
+import PaginaInicial from './componentes/PaginaInicial.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const routes = createBrowserRouter([
   {
     path: '/listajogos',
     element: <ListaJogos />
+  },
+  {
+    path: '/paginaInicial',
+    element: <PaginaInicial />
   },
   {
     path: '/votacao',
