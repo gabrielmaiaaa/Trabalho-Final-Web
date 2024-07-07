@@ -13,7 +13,7 @@ router.get('/dados', (req,res) =>{
 })
 
 router.post('/criar-lista', async (req,res) => {
-    const {titulo, descricao} = req.body;
+    const {titulo, descricao, url} = req.body;
 
     for (let listas of listaEncontrada){
         if(listas.titulo === titulo){
@@ -23,11 +23,23 @@ router.post('/criar-lista', async (req,res) => {
 
     const id = listaEncontrada.length + 1;
 
-    const lista = new Lista(id, titulo, descricao);
+    const lista = new Lista(id, titulo, descricao, url);
     
     listaEncontrada.push(lista);
     fs.writeFileSync(bdPath,JSON.stringify(listaEncontrada, null, 2));
     return res.status(200).send(`Lista criada com sucesso. ${id}`);
+})
+
+router.delete('/deletar-lista/:id', async (req, res) => {
+    const {id} = req.params;
+    
+    const acharIndex = (p) => p.id === id;
+
+    const index = listaEncontrada.findIndex(acharIndex);
+
+    listaEncontrada.splice(index, 1);
+    fs.writeFileSync(bdPath, JSON.stringify(listaEncontrada,null,2));
+    return res.status(200).send('Lista removida');
 })
 
 module.exports = router;

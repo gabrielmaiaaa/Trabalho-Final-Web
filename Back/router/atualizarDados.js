@@ -52,8 +52,6 @@ router.delete('/deletar-dados/:email', autenticadorToken, (req,res) => {
 
     const index = usuarios.findIndex(acharIndex);
 
-    console.log('Índice encontrado:', index);
-
     usuarios.splice(index, 1);
     fs.writeFileSync(bdPath, JSON.stringify(usuarios, null, 2));
     return res.status(200).send('Usuário Removido');

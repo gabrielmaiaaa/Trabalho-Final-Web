@@ -8,6 +8,7 @@ import { Link, Navigate } from 'react-router-dom';
 const schema = yup.object({
   titulo: yup.string().required('Título obrigatório'),
   descricao: yup.string().required('Descrição obrigatório'),
+  url: yup.string().url('Url inválido').required('Url obrigatório')
 }).required();
 
 export default function CriarListaJogos() {
@@ -46,6 +47,10 @@ export default function CriarListaJogos() {
       <label htmlFor="">Descrição</label>
       <textarea name="descricao" id="descricao" {...register('descricao')} ></textarea>
       <p className='erro'> {errors.descricao?.message} </p>
+
+      <label htmlFor="itch">Link da Página itch.io</label>
+      <input type="url" id="url" {...register('url')} />
+      <p className='erro'> {errors.url?.message} </p>
 
       <button>Criar</button>
     </form>

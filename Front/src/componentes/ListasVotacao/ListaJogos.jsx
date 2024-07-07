@@ -6,7 +6,7 @@ export default function ListaJogos({id, titulo, descricao}) {
   return (
     <>
       <p>{titulo}</p>
-      <button><Link to='/verListaJogo'>Acessar</Link></button>
+      <button><Link to='/verListaJogo' state={{id, titulo, descricao}}>Acessar</Link></button>
     </>
   )
 }
