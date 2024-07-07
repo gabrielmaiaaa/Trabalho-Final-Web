@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "titulo": "Atari",
+    "descricao": "lorem loremlorem loremlorem loremlorem loremlorem loremlorem loremlorem loremlorem lorem",
+    "jogos": []
+  },
+  {
+    "id": 2,
+    "titulo": "Peixe",
+    "descricao": "dsadasdasd",
+    "jogos": []
+  },
+  {
+    "id": 3,
+    "titulo": "sdfdsfsf",
+    "descricao": "sdfdsfsdfsdf",
+    "jogos": []
+  },
+  {
+    "id": 4,
+    "titulo": "dasdsad",
+    "descricao": "sddfd3r",
+    "jogos": []
+  },
+  {
+    "id": 5,
+    "titulo": "dasdsadsad",
+    "descricao": "fwef3gtftrbh54ygh43g34gv54rg",
+    "jogos": []
+  },
+  {
+    "id": 6,
+    "titulo": "fsafd3rfwef",
+    "descricao": "asdsad",
+    "jogos": []
+  }
+]

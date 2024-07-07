@@ -3,11 +3,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom' //npm i react-router-dom
 import Configuracao from './Configuracao';
-import ListaJogos from './ListaJogos';
+import ListaJogos from '../ListasVotacao/ListaJogos';
 
 export default function PaginaInicial({email}) {
 
   const [propriedades, setPropriedades] = useState([]);
+  const [dadosListas, setDadosListas] = useState([]);
   const [user, setUser] = useState();
 
     useEffect(() =>{
@@ -20,6 +21,14 @@ export default function PaginaInicial({email}) {
         }
         buscaPropriedades();
     },[]);
+
+    useEffect(() => {
+      async function buscaLista(){
+        const list = await axios.get('http://localhost:3000/listas/dados');
+        setDadosListas(list.data);
+      }
+      buscaLista();
+    }, []);
     
     useEffect(() => {
       const usuario = propriedades.find(p => p.email === email);
@@ -28,12 +37,16 @@ export default function PaginaInicial({email}) {
 
     if (!user) {
       console.log("Carregando ou usuário não encontrado...");
-      return <p>Carregando ou usuário não encontrado...</p>;
     }
 
   return (
     <>
-    <ListaJogos />
+    <div>
+      {
+        dadosListas.map(p => <ListaJogos key={p.id} {...p} />)
+      }
+    </div>
+    <button><Link to='/criarListaJogos'>Criar Lista</Link></button>
     <button><Link to='/configuracao' state={{...user}}>Configuração</Link></button>
     </>
   )

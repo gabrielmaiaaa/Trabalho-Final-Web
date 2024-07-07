@@ -6,9 +6,19 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import CreateUser from './componentes/auth/CreateUser.jsx'
 import LoginUser from './componentes/auth/LoginUser.jsx'
-import Configuracao from './componentes/Configuracao.jsx'
-import Votacao from './componentes/Votacao.jsx'
-import ListaJogos from './componentes/ListaJogos.jsx'
+import Configuracao from './componentes/Site/Configuracao.jsx'
+import Votacao from './componentes/ListasVotacao/Votacao.jsx'
+import ListaJogos from './componentes/ListasVotacao/ListaJogos.jsx'
+import PaginaInicial from './componentes/Site/PaginaInicial.jsx'
+import CriarListaJogos from './componentes/ListasVotacao/CriarListaJogos.jsx'
+import VerListaJogo from './componentes/ListasVotacao/VerListaJogo.jsx'
+import Resultados from './componentes/ListasVotacao/Resultados.jsx'
+import IdentidadeVisual from './componentes/Categorias/IdentidadeVisual.jsx'
+import Polimento from './componentes/Categorias/Polimento.jsx'
+import GameDesign from './componentes/Categorias/GameDesign.jsx'
+import Jogabilidade from './componentes/Categorias/Jogabilidade.jsx'
+import Originalidade from './componentes/Categorias/Originalidade.jsx'
+import Tema from './componentes/Categorias/Tema.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -26,16 +36,52 @@ const routes = createBrowserRouter([
     ]
   },
   {
+    path: '/paginaInicial',
+    element: <PaginaInicial />
+  },
+  {
+    path: '/configuracao',
+    element: <Configuracao />
+  },
+  {
     path: '/listajogos',
     element: <ListaJogos />
+  },
+  {
+    path: '/criarListaJogos',
+    element: <CriarListaJogos />
+  },
+  {
+    path: '/verListaJogo',
+    element: <VerListaJogo />
   },
   {
     path: '/votacao',
     element: <Votacao />
   },
   {
-    path: '/configuracao',
-    element: <Configuracao />
+    path: '/identidade-visual',
+    element: <IdentidadeVisual />
+  },
+  {
+    path: '/polimento',
+    element: <Polimento />
+  },
+  {
+    path: '/game-design',
+    element: <GameDesign />
+  },
+  {
+    path: '/jogabilidade',
+    element: <Jogabilidade />
+  },
+  {
+    path: '/originalidade',
+    element: <Originalidade />
+  },
+  {
+    path: '/tema',
+    element: <Tema />
   }
 ]);
 

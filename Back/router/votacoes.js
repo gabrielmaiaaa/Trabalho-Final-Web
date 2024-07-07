@@ -13,7 +13,7 @@ const jwt = require('jsonwebtoken');
 
 
 //Conexao com banco de dados
-const bdPath = path.join(__dirname,'..','db','listasVotacao.json');
+const bdPath = path.join(__dirname,'..','db','votos.json');
 const votacoes = JSON.parse(fs.readFileSync(bdPath, {encoding: 'utf-8'}));
 
 //Rota para buscar as votacoes

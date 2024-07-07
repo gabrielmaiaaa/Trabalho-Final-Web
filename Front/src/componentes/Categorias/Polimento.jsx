@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function ListaJogos({}) {
-
+export default function Polimento() {
   return (
     <>
     </>
