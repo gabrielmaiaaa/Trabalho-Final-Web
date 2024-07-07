@@ -1,9 +1,10 @@
 import React from 'react'
-import {Link, Navigate, useLocation} from 'react-router-dom' //npm i react-router-dom
+import {Link, Navigate, useLocation, useNavigate} from 'react-router-dom' //npm i react-router-dom
 import { useState } from 'react';
 import axios from 'axios'
 
 export default function Configuracao() {
+  const navigate = useNavigate();
 
   const [msg, setMsg] = useState('');
 
@@ -42,6 +43,7 @@ export default function Configuracao() {
       const estado = await axios.put('http://localhost:3000/atualizarDados/atualizar-dados', dados, config);
       if(estado.status === 200){
         setMsg('OK');
+        navigate(-1);
       }
     }catch (error){
       console.log(error);
@@ -55,6 +57,7 @@ export default function Configuracao() {
         const resposta = await axios.delete(`http://localhost:3000/atualizarDados/deletar-dados/${email}`, config);
         if(resposta.status === 200){
           setMsg('OK');
+          navigate(-1);
         }
       } catch (error) {
         console.log(error);
@@ -62,8 +65,7 @@ export default function Configuracao() {
     }
   }
 
-  if(msg === 'OK')
-    return <Navigate to='/' /> 
+  const handleBack = () => navigate(-1);
 
   return (
     <>
@@ -86,7 +88,7 @@ export default function Configuracao() {
         onChange={handleChange} value={dados.password} />
       </div>
       
-      <Link to='/'>Voltar</Link>
+      <button onClick={handleBack}>Voltar</button>
       <button>Atualizar</button>
       <button onClick={handleDelete}>Excluir Perfil</button>
     </form>

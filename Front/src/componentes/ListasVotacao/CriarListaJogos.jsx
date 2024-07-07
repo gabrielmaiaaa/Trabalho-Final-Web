@@ -3,7 +3,7 @@ import {set, useForm} from 'react-hook-form'; //npm i react-hook-form
 import { yupResolver } from "@hookform/resolvers/yup"; //npm i @hookform/resolvers
 import * as yup from "yup"; //npm i yup
 import axios from 'axios';//npm i axios
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const schema = yup.object({
   titulo: yup.string().required('Título obrigatório'),
@@ -12,6 +12,7 @@ const schema = yup.object({
 }).required();
 
 export default function CriarListaJogos() {
+  const navigate = useNavigate();
 
   const [msg, setMsg] = useState('');
 
@@ -26,15 +27,18 @@ export default function CriarListaJogos() {
   const submit = async (data) => {
     try {
       const response = await axios.post('http://localhost:3000/listas/criar-lista', data);
-      if(response.status === 200)
+      if(response.status === 200){
         setMsg('OK');
+        navigate(-1);
+      }
     } catch (error) {
       console.log(error.response.data);
     }
   }
 
-  if(msg === 'OK')
-    return <Navigate to='/' />
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -55,7 +59,7 @@ export default function CriarListaJogos() {
       <button>Criar</button>
     </form>
     <p className='server-response'>{msg}</p>
-    <Link to='/'>Voltar</Link>
+    <button onClick={handleBack}>Voltar</button>
     </>
   )
 }

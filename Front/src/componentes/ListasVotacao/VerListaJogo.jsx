@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link, Navigate, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 export default function VerListaJogo() {
+  const navigate = useNavigate();
+
   const [msg, setMsg] = useState('');
 
   const {id, titulo, descricao} = useLocation().state;
@@ -12,18 +14,17 @@ export default function VerListaJogo() {
     if(c === true){
       try {
         const resposta = await axios.delete(`http://localhost:3000/listas/deletar-lista/${id}`);
-        if(resposta.status === 200)
+        if(resposta.status === 200){
           setMsg('OK');
+          navigate(-1);
+        }
       } catch (error) {
         console.log(error);
       }
     }
   }
 
-  if(msg === 'OK')
-    return <Navigate to='/'/>
-    
-  console.log({titulo});
+  const handleBack = () => navigate(-1);
 
   return (
     <>
@@ -35,6 +36,7 @@ export default function VerListaJogo() {
       <p>Vote na catagoria: <Link to='/jogabilidade'>Jogabilidade</Link></p>
       <p>Vote na catagoria: <Link to='/originalidade'>Originalidade</Link></p>
       <p>Vote na catagoria: <Link to='/tema'>Tema</Link></p>
+      <button onClick={handleBack}>Voltar</button>
       <button onClick={handleDelete}>Excluir Lista</button>
     </>
   )

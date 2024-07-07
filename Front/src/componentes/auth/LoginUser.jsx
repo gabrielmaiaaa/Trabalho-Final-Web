@@ -37,7 +37,7 @@ export default function LoginUser() {
   }
 
   if(msg.includes('Usuário Autenticado'))
-    return <PaginaInicial email={email} />;
+    return <Navigate to='/paginaInicial' state={email} />;
 
   return (
     <>
