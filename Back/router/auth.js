@@ -22,7 +22,7 @@ const User = require('../models/User');
 //dotenv
 require('dotenv').config();
 
-router.get('/usuarios', (req,res) =>{
+router.get('/usuarios', autenticadorToken, (req,res) =>{
 
     //Devolve as propriedades em formato JSON
     res.status(200).json(usuariosCadastrados);
@@ -92,7 +92,21 @@ router.post('/create', async (req,res) => {
     //Salva user no "banco"
     usuariosCadastrados.push(user);
     fs.writeFileSync(bdPath,JSON.stringify(usuariosCadastrados,null,2));
-    res.send(`Tudo certo usuario criado com sucesso. id=${id}`);
+    res.status(200).send(`Tudo certo usuario criado com sucesso. id=${id}`);
 });
+
+function autenticadorToken(req, res, next){
+    const authH = req.headers['authorization'];
+    const token = authH && authH.split(' ')[1];
+    if(token === null) return res.status(401).send('Token não encontrado');
+    
+    try{
+        const user = jwt.verify(token, process.env.TOKEN);
+        req.user = user;
+        next();  //Se token é válido, avança chamando next()
+    } catch (error) {
+        res.status(403).send('Token inválido')
+    }
+}
 
 module.exports = router;

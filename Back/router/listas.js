@@ -27,7 +27,7 @@ router.post('/criar-lista', async (req,res) => {
     console.log(jogos);
     jogos.forEach(jogo => {
         lista.adicionarJogo(jogo);
-    });
+    }); 
     
     listaEncontrada.push(lista);
     fs.writeFileSync(bdPath,JSON.stringify(listaEncontrada, null, 2));
