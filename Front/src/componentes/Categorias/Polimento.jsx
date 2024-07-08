@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Polimento() {
-  const {titulo, descricao, url, jogos} = useLocation().state
+  const {id, titulo, descricao, url, jogos} = useLocation().state
 
   const [jogo, setJogo] = useState([]);
 
@@ -60,9 +60,8 @@ export default function Polimento() {
     }
 
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/identidade-visual' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/'>Mostrar todos</Link> </button>
-    <button> <Link to='/game-design' state={{titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
+    <button> <Link to='/identidade-visual' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+    <button> <Link to='/game-design' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
     </>
   )
 }

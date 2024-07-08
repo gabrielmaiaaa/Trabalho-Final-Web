@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Tema() {
-  const {titulo, descricao, url, jogos} = useLocation().state
+  const {id, titulo, descricao, url, jogos} = useLocation().state
 
   const [jogo, setJogo] = useState([]);
 
@@ -59,9 +59,8 @@ export default function Tema() {
       ))
     }
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/originalidade' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/'>Mostrar todos</Link> </button>
-    <button> <Link to='/verListaJogo' state={{titulo,descricao,url,jogos}}>Finalizar Votos</Link> </button>
+    <button> <Link to='/originalidade' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+    <button> <Link to='/verListaJogo' state={{id,titulo,descricao,url,jogos}}>Finalizar Votos</Link> </button>
     </>
   )
 }
