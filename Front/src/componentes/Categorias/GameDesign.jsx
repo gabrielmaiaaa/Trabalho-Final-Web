@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function GameDesign() {
-  const {titulo, descricao, url, jogos} = useLocation().state
-
+  const {id, titulo, descricao, url, jogos} = useLocation().state
   const [jogo, setJogo] = useState([]);
+  const categoria = 'gameDesign';
 
   useEffect(() => {
     const acharJogo = async () => {
@@ -18,7 +18,32 @@ export default function GameDesign() {
       }
     }
     acharJogo();
-  }, [jogos])
+  }, [jogos]);
+  console.log(jogo);
+
+  const vote = async (gameId) =>{
+    const competicaoId = id;
+
+    console.log("votei");
+
+    try {
+      
+      const response = await axios.post('http://localhost:3000/votar', {
+        competicaoId,
+        categoria,
+        gameId
+
+      });
+
+      if(response.data.success){
+        alert('Voto registrado com sucesso!');
+      }
+
+    } catch (error) {
+      console.log('Erro', error);
+    }
+
+  };
 
   return (
     <>
@@ -26,7 +51,8 @@ export default function GameDesign() {
     <p>{descricao}</p>
     {
       jogo.map((game, index) => (
-        <button key={index}>
+        
+        <button key={index} onClick={vote(index)}>
           <img src={game.image} alt={game.name} />
           <p>Votar</p>
         </button>

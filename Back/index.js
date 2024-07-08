@@ -11,7 +11,6 @@ app.use(cors());
 app.use(express.json())
 
 //importar rota das votações
-const votacoesRoutes = require('./router/votacoes');
 const authRoutes = require('./router/auth');
 const atualizarDadosRoutes = require('./router/atualizarDados');
 const listasRoutes = require('./router/listas');
@@ -19,7 +18,6 @@ const jogosRoutes = require('./router/jogos');
 
 //rotas para os dois serviços
 app.use('/auth', authRoutes);
-app.use('/votacoes', votacoesRoutes);
 app.use('/atualizarDados', atualizarDadosRoutes);
 app.use('/listas', listasRoutes);
 app.use('/jogos', jogosRoutes);

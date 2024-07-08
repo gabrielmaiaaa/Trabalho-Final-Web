@@ -26,7 +26,7 @@ router.get('/jogoEspecifico/:jogos', (req,res) => {
             });
         }
     });
-    console.log(jogoDaJam);
+   
 
     res.status(200).json(jogoDaJam);
 

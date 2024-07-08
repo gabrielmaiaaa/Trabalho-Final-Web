@@ -7,10 +7,10 @@
     "admin": 0
   },
   {
-    "id": 3,
-    "username": "krjkfgkbhgbf807",
-    "email": "gabrielmaia44.ofc@gmail.com",
-    "password": "$2b$10$kzjoKftxHAMhWc1yzcil5eQUFURzx5o3gvgfv3NnCC4re0nC1EsPi"
-  },
-  {}
+    "id": 2,
+    "username": "samis",
+    "email": "samis@hotmail.com",
+    "password": "$2b$10$xvls5yGXArJAZCpREGyUjeumGPk/ABYzDfEaq/OpJpKEWUEXlKlLe",
+    "admin": 0
+  }
 ]
