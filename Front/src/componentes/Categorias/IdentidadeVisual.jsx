@@ -32,7 +32,6 @@ export default function IdentidadeVisual() {
         </button>
       ))
     }
-    
 
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
     <button> <Link to='/tema' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
