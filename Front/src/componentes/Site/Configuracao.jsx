@@ -87,11 +87,11 @@ export default function Configuracao() {
         <input type="password" id='password' name='password'  
         onChange={handleChange} value={dados.password} />
       </div>
-      
-      <button onClick={handleBack}>Voltar</button>
+  
       <button>Atualizar</button>
       <button onClick={handleDelete}>Excluir Perfil</button>
     </form>
+    <button onClick={handleBack}>Voltar</button>
     </>
   )
 }

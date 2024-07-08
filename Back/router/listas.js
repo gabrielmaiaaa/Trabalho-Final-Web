@@ -13,7 +13,7 @@ router.get('/dados', (req,res) =>{
 })
 
 router.post('/criar-lista', async (req,res) => {
-    const {titulo, descricao, url} = req.body;
+    const {titulo, descricao, url, jogos} = req.body;
 
     for (let listas of listaEncontrada){
         if(listas.titulo === titulo){
@@ -24,6 +24,7 @@ router.post('/criar-lista', async (req,res) => {
     const id = listaEncontrada.length + 1;
 
     const lista = new Lista(id, titulo, descricao, url);
+    console.log(jogos);
     
     listaEncontrada.push(lista);
     fs.writeFileSync(bdPath,JSON.stringify(listaEncontrada, null, 2));

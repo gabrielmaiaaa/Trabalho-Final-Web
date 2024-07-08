@@ -7,7 +7,7 @@ export default function VerListaJogo() {
 
   const [msg, setMsg] = useState('');
 
-  const {id, titulo, descricao} = useLocation().state;
+  const {id, titulo, descricao, url, jogos} = useLocation().state;
 
   const handleDelete = async () =>{
     let c = confirm(`Deseja exluir a lista ${titulo}?`);
@@ -30,11 +30,11 @@ export default function VerListaJogo() {
     <>
       <p>{titulo}</p>
       <p>{descricao}</p>
-      <p>Vote na catagoria: <Link to='/identidade-visual'>Identidade Visual</Link></p>
-      <p>Vote na catagoria: <Link to='/polimento'>Polimento</Link></p>
-      <p>Vote na catagoria: <Link to='/game-design'>Game Design</Link></p>
-      <p>Vote na catagoria: <Link to='/jogabilidade'>Jogabilidade</Link></p>
-      <p>Vote na catagoria: <Link to='/originalidade'>Originalidade</Link></p>
+      <p>Vote na catagoria: <Link to='/identidade-visual' state={{titulo,descricao,url,jogos}}>Identidade Visual</Link></p>
+      <p>Vote na catagoria: <Link to='/polimento' state={{titulo,descricao,url,jogos}}>Polimento</Link></p>
+      <p>Vote na catagoria: <Link to='/game-design' state={{titulo,descricao,url,jogos}}>Game Design</Link></p>
+      <p>Vote na catagoria: <Link to='/jogabilidade' state={{titulo,descricao,url,jogos}}>Jogabilidade</Link></p>
+      <p>Vote na catagoria: <Link to='/originalidade' state={{titulo,descricao,url,jogos}}>Originalidade</Link></p>
       <p>Vote na catagoria: <Link to='/tema'>Tema</Link></p>
       <button onClick={handleBack}>Voltar</button>
       <button onClick={handleDelete}>Excluir Lista</button>
