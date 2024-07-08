@@ -135,15 +135,19 @@ router.put('/atualizar', async (req,res) => {
 
 router.delete('/deletar/:email', (req,res) => {
     const {email} = req.params;
+    console.log(email);
 
     const acharIndex = (p) => {
         return p.email === email;
     }
 
     const index = usuariosCadastrados.findIndex(acharIndex);
+    console.log(index);
+    console.log(usuariosCadastrados[index]);
 
     usuariosCadastrados.splice(index, 1);
-    fs.writeFileSync(bdPath, JSON.stringify(usuariosCadastrados, null, 2));
+    console.log(usuariosCadastrados);
+    fs.writeFileSync(bdPath,JSON.stringify(usuariosCadastrados, null, 2));
     return res.status(200).send('Usuário Removido');
 });
 

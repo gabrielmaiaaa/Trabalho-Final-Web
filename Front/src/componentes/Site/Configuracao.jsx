@@ -108,8 +108,8 @@ export default function Configuracao() {
       </div>
   
       <button>Atualizar</button>
-      <button onClick={handleDelete}>Excluir Perfil</button>
     </form>
+    <button onClick={handleDelete}>Excluir Perfil</button>
     <button onClick={handleBack}>Voltar</button>
     </>
   )
