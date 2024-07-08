@@ -77,6 +77,10 @@ const routes = createBrowserRouter([
   {
     path: '/tema',
     element: <Tema />
+  },
+  {
+    path: '/resultados',
+    element: <Resultados />
   }
 ]);
 
