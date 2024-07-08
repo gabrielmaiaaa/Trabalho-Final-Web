@@ -51,7 +51,11 @@ router.post('/login', async (req,res) => {
                 //La coloquei as instruções de como gerar
                 console.log('FAZ O L');
                 const tokenAcesso = jwt.sign(user,process.env.TOKEN);
-                return res.status(200).json(tokenAcesso);
+                return res.status(200).json({
+                    token: tokenAcesso,
+                    id: user.id,
+                    email: user.email
+                });
             }
             else
                 return res.status(422).send(`Usuario ou senhas incorretas.`);
@@ -93,6 +97,42 @@ router.post('/create', async (req,res) => {
     usuariosCadastrados.push(user);
     fs.writeFileSync(bdPath,JSON.stringify(usuariosCadastrados,null,2));
     res.status(200).send(`Tudo certo usuario criado com sucesso. id=${id}`);
+});
+
+router.put('/atualizar', (req,res) => {
+    const {id, username, email, password, admin} = req.body;
+
+    const novoDados = {
+        id,
+        username,
+        email,
+        password,
+        admin
+    }
+
+    const acharUser = (p) => {
+        return p.email === email;
+    }
+
+    const index = usuarios.findIndex(acharUser);
+
+    usuarios.splice(index, 1, novoDados);
+    fs.writeFileSync(bdPath, JSON.stringify(usuarios,null,2));
+    res.status(200).send('Usuário Atualizado');
+});
+
+router.delete('/deletar/:email', (req,res) => {
+    const {email} = req.params;
+
+    const acharIndex = (p) => {
+        return p.email === email;
+    }
+
+    const index = usuariosCadastrados.findIndex(acharIndex);
+
+    usuariosCadastrados.splice(index, 1);
+    fs.writeFileSync(bdPath, JSON.stringify(usuariosCadastrados, null, 2));
+    return res.status(200).send('Usuário Removido');
 });
 
 function autenticadorToken(req, res, next){

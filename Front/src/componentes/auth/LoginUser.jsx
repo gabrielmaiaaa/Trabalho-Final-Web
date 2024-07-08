@@ -13,7 +13,6 @@ const schema = yup.object({
 export default function LoginUser() {
   
   const [msg, setMsg] = useState(' ');
-  const [email, setEmail] = useState(' ');
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -26,8 +25,9 @@ export default function LoginUser() {
   const submit = async (data) => {
     try{
       const response = await axios.post('http://localhost:3000/auth/login', data);
-      sessionStorage.setItem('token', response.data);
-      setEmail(data.email);
+      sessionStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('id', response.data.id);
+      sessionStorage.setItem('email', response.data.email);
       setMsg('Usuário Autenticado');
     } catch (error){
       console.log(error.response.data);
@@ -35,7 +35,7 @@ export default function LoginUser() {
   }
 
   if(msg.includes('Usuário Autenticado'))
-    return <Navigate to='/paginaInicial' state={email} />;
+    return <Navigate to='/paginaInicial'/>;
 
   return (
     <>

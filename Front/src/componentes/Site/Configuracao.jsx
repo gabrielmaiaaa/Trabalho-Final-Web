@@ -18,6 +18,7 @@ export default function Configuracao() {
     password,
     admin
   });
+  console.log(id);
 
   const handleChange = (e) => {
     const novoValor = {
@@ -56,7 +57,7 @@ export default function Configuracao() {
     e.preventDefault();
 
     try{
-      const estado = await axios.put('http://localhost:3000/atualizarDados/atualizar-dados', dados);
+      const estado = await axios.put('http://localhost:3000/auth/atualizar', dados);
       if(estado.status === 200){
         setMsg('OK');
         navigate(-1);
@@ -70,10 +71,10 @@ export default function Configuracao() {
     let c = confirm(`Deseja excluir a conta ${username}?`);
     if(c === true){
       try {
-        const resposta = await axios.delete(`http://localhost:3000/atualizarDados/deletar-dados/${email}`);
+        const resposta = await axios.delete(`http://localhost:3000/auth/deletar/${email}`);
         if(resposta.status === 200){
           setMsg('OK');
-          navigate(-1);
+          navigate('/');
         }
       } catch (error) {
         console.log(error);
