@@ -61,7 +61,7 @@ export default function VerListaJogo() {
       <p>Vote na catagoria: <Link to='/game-design' state={{id,titulo,descricao,url,jogos}}>Game Design</Link></p>
       <p>Vote na catagoria: <Link to='/jogabilidade' state={{id,titulo,descricao,url,jogos}}>Jogabilidade</Link></p>
       <p>Vote na catagoria: <Link to='/originalidade' state={{id,titulo,descricao,url,jogos}}>Originalidade</Link></p>
-      <p>Vote na catagoria: <Link to='/tema'>Tema</Link></p>
+      <p>Vote na catagoria: <Link to='/tema' state={{id,titulo,descricao,url,jogos}}>Tema</Link></p>
       <button> <Link to='/paginaInicial' state={{email}}>Voltar</Link> </button>
       <button onClick={handleDelete}>Excluir Lista</button>
     </>
