@@ -8,6 +8,7 @@ export default function VerListaJogo() {
   const [msg, setMsg] = useState('');
 
   const {id, titulo, descricao, url, jogos} = useLocation().state;
+  console.log(id);
 
   const email = localStorage.getItem('email');
 
@@ -56,11 +57,11 @@ export default function VerListaJogo() {
     <>
       <p>{titulo}</p>
       <p>{descricao}</p>
-      <p>Vote na catagoria: <Link to='/identidade-visual' state={{titulo,descricao,url,jogos}}>Identidade Visual</Link></p>
-      <p>Vote na catagoria: <Link to='/polimento' state={{titulo,descricao,url,jogos}}>Polimento</Link></p>
-      <p>Vote na catagoria: <Link to='/game-design' state={{titulo,descricao,url,jogos}}>Game Design</Link></p>
-      <p>Vote na catagoria: <Link to='/jogabilidade' state={{titulo,descricao,url,jogos}}>Jogabilidade</Link></p>
-      <p>Vote na catagoria: <Link to='/originalidade' state={{titulo,descricao,url,jogos}}>Originalidade</Link></p>
+      <p>Vote na catagoria: <Link to='/identidade-visual' state={{id,titulo,descricao,url,jogos}}>Identidade Visual</Link></p>
+      <p>Vote na catagoria: <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Polimento</Link></p>
+      <p>Vote na catagoria: <Link to='/game-design' state={{id,titulo,descricao,url,jogos}}>Game Design</Link></p>
+      <p>Vote na catagoria: <Link to='/jogabilidade' state={{id,titulo,descricao,url,jogos}}>Jogabilidade</Link></p>
+      <p>Vote na catagoria: <Link to='/originalidade' state={{id,titulo,descricao,url,jogos}}>Originalidade</Link></p>
       <p>Vote na catagoria: <Link to='/tema'>Tema</Link></p>
       <button> <Link to='/paginaInicial' state={{email}}>Voltar</Link> </button>
       <button onClick={handleDelete}>Excluir Lista</button>
