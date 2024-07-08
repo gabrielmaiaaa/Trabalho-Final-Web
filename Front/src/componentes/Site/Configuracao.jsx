@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link, Navigate, useLocation, useNavigate} from 'react-router-dom' //npm i react-router-dom
 import { useState } from 'react';
 import axios from 'axios'
@@ -7,9 +7,9 @@ export default function Configuracao() {
   const navigate = useNavigate();
 
   const [msg, setMsg] = useState('');
+  const [authorized, setAuthorized] = useState(false);
 
   const {id, username, email, password, admin} = useLocation().state;
-  // const {id, username, email, password} = useLocation().state || {};
 
   const [dados, setDados] = useState({
     id,
@@ -18,6 +18,7 @@ export default function Configuracao() {
     password,
     admin
   });
+  console.log(id);
 
   const handleChange = (e) => {
     const novoValor = {
@@ -36,11 +37,27 @@ export default function Configuracao() {
     }
   }
 
+  useEffect(() =>{
+      
+    async function validaAcesso(){
+      try{
+        const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
+        if(resposta.status === 200){
+          setAuthorized(true);
+        }
+      } catch(erro){
+        console.log(erro);
+        setAuthorized(false);            
+      }
+    }
+    validaAcesso();
+  },[]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try{
-      const estado = await axios.put('http://localhost:3000/atualizarDados/atualizar-dados', dados, config);
+      const estado = await axios.put('http://localhost:3000/auth/atualizar', dados);
       if(estado.status === 200){
         setMsg('OK');
         navigate(-1);
@@ -54,10 +71,10 @@ export default function Configuracao() {
     let c = confirm(`Deseja excluir a conta ${username}?`);
     if(c === true){
       try {
-        const resposta = await axios.delete(`http://localhost:3000/atualizarDados/deletar-dados/${email}`, config);
+        const resposta = await axios.delete(`http://localhost:3000/auth/deletar/${email}`);
         if(resposta.status === 200){
           setMsg('OK');
-          navigate(-1);
+          navigate('/');
         }
       } catch (error) {
         console.log(error);
@@ -66,6 +83,8 @@ export default function Configuracao() {
   }
 
   const handleBack = () => navigate(-1);
+
+  if(!authorized) return <p>Sem Autorização</p>;
 
   return (
     <>
