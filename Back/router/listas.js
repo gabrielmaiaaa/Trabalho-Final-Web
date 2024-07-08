@@ -13,7 +13,7 @@ router.get('/dados', (req,res) =>{
 })
 
 router.post('/criar-lista', async (req,res) => {
-    const {titulo, descricao, url} = req.body;
+    const {titulo, descricao, url, jogos} = req.body;
 
     for (let listas of listaEncontrada){
         if(listas.titulo === titulo){
@@ -24,6 +24,10 @@ router.post('/criar-lista', async (req,res) => {
     const id = listaEncontrada.length + 1;
 
     const lista = new Lista(id, titulo, descricao, url);
+    console.log(jogos);
+    jogos.forEach(jogo => {
+        lista.adicionarJogo(jogo);
+    }); 
     
     listaEncontrada.push(lista);
     fs.writeFileSync(bdPath,JSON.stringify(listaEncontrada, null, 2));
@@ -33,8 +37,9 @@ router.post('/criar-lista', async (req,res) => {
 router.delete('/deletar-lista/:id', async (req, res) => {
     const {id} = req.params;
     
-    const acharIndex = (p) => p.id === id;
-
+    const acharIndex = (p) => {
+        return p.id === parseInt(id);
+    }
     const index = listaEncontrada.findIndex(acharIndex);
 
     listaEncontrada.splice(index, 1);

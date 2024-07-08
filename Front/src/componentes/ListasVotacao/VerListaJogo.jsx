@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 export default function VerListaJogo() {
@@ -7,9 +7,35 @@ export default function VerListaJogo() {
 
   const [msg, setMsg] = useState('');
 
-  const {id, titulo, descricao} = useLocation().state;
+  const {id, titulo, descricao, url, jogos} = useLocation().state;
 
-  const handleDelete = async () =>{
+  const email = localStorage.getItem('email');
+
+  const [authorized, setAuthorized] = useState(false);
+
+  const config = {
+    headers: {
+        Authorization: "Bearer " + sessionStorage.getItem('token')
+    }
+  }
+
+  useEffect(() =>{
+      
+    async function validaAcesso(){
+      try{
+        const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
+        if(resposta.status === 200){
+          setAuthorized(true);
+        }
+      } catch(erro){
+        console.log(erro);
+        setAuthorized(false);            
+      }
+    }
+    validaAcesso();
+  },[]);
+
+  const handleDelete = async () => {
     let c = confirm(`Deseja exluir a lista ${titulo}?`);
     if(c === true){
       try {
@@ -24,19 +50,19 @@ export default function VerListaJogo() {
     }
   }
 
-  const handleBack = () => navigate(-1);
+  if(!authorized) return <p>Sem Autorização</p>
 
   return (
     <>
       <p>{titulo}</p>
       <p>{descricao}</p>
-      <p>Vote na catagoria: <Link to='/identidade-visual'>Identidade Visual</Link></p>
-      <p>Vote na catagoria: <Link to='/polimento'>Polimento</Link></p>
-      <p>Vote na catagoria: <Link to='/game-design'>Game Design</Link></p>
-      <p>Vote na catagoria: <Link to='/jogabilidade'>Jogabilidade</Link></p>
-      <p>Vote na catagoria: <Link to='/originalidade'>Originalidade</Link></p>
+      <p>Vote na catagoria: <Link to='/identidade-visual' state={{titulo,descricao,url,jogos}}>Identidade Visual</Link></p>
+      <p>Vote na catagoria: <Link to='/polimento' state={{titulo,descricao,url,jogos}}>Polimento</Link></p>
+      <p>Vote na catagoria: <Link to='/game-design' state={{titulo,descricao,url,jogos}}>Game Design</Link></p>
+      <p>Vote na catagoria: <Link to='/jogabilidade' state={{titulo,descricao,url,jogos}}>Jogabilidade</Link></p>
+      <p>Vote na catagoria: <Link to='/originalidade' state={{titulo,descricao,url,jogos}}>Originalidade</Link></p>
       <p>Vote na catagoria: <Link to='/tema'>Tema</Link></p>
-      <button onClick={handleBack}>Voltar</button>
+      <button> <Link to='/paginaInicial' state={{email}}>Voltar</Link> </button>
       <button onClick={handleDelete}>Excluir Lista</button>
     </>
   )
