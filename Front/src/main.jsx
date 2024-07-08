@@ -7,7 +7,6 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import CreateUser from './componentes/auth/CreateUser.jsx'
 import LoginUser from './componentes/auth/LoginUser.jsx'
 import Configuracao from './componentes/Site/Configuracao.jsx'
-import Votacao from './componentes/ListasVotacao/Votacao.jsx'
 import ListaJogos from './componentes/ListasVotacao/ListaJogos.jsx'
 import PaginaInicial from './componentes/Site/PaginaInicial.jsx'
 import CriarListaJogos from './componentes/ListasVotacao/CriarListaJogos.jsx'
@@ -54,10 +53,6 @@ const routes = createBrowserRouter([
   {
     path: '/verListaJogo',
     element: <VerListaJogo />
-  },
-  {
-    path: '/votacao',
-    element: <Votacao />
   },
   {
     path: '/identidade-visual',

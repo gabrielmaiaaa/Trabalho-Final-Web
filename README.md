@@ -1,28 +1,15 @@
 # Trabalho-Final-Web
 
-<div>
-  <p>
-    <b>Objetivo do Trabalho Final:</b> Consolidar todos os fundamentos vistos em sala de aula na criação de uma aplicação web, e expandir conhecimentos de frameworks específicos escolhidos pela equipe. Podemos dividir o projeto desenvolvido em três blocos.
-  </p>
+<b>Objetivo do Trabalho Final:</b> Consolidar todos os fundamentos vistos em sala de aula na criação de uma aplicação web, e expandir conhecimentos de frameworks específicos escolhidos pela equipe. Podemos dividir o projeto desenvolvido em três blocos.
 
-  <ol>
-    <li>Frontend</li>
-    <ul>
-      <li>HTML para definir os elementos</li>
-      <li>CSS para estilizar os elementos</li>
-      <li>JavaScript para adicionar comportamento aos elementos</li>
-    </ul>
-    <li>Backend</li>
-    <ul>
-      <li>NodeJS com Express para criar rotas (endpoints) e trabalhar requisições do tipo POST/GET</li>
-      <li>NPM para gerenciar as dependências </li>
-      <li>Manipulação de arquivos com NodeJS</li>
-    </ul>
-    <li>FullStack</li>
-    <ul>
-      <li>Utilização do Forms HTML para submeter dados para o servidor (NodeJS) com POST/GET</li>
-      <li>Inserção em arquivos de dados do Forms (simulando Criação – Create)</li>
-      <li>Leitura de arquivos a partir de elementos de busca do Forms (simulando Leitura - Read)</li>
-    </ul>
-  </ol>
-</div>
+O tema escolhido pela nossa equipe foi o desenvolvimento de um site de votação. O seu principal intuito é de ajudar o projeto de extensão da Unifei, a Dev-U, com os votos dos jogos que participaram das jams.
+
+Para realizarmos isso com o trabalho final de Web, tivemos que desenvolver um sistema de login e cadastro para novos usuários.
+Assim que o usuário entra no nosso site, ele já poderá ver as listas de jams disponíveis para voto. Ao clicar nessa lista, o usuário é levado para outra tela onde ele tem qu selecionar as categorias disponíveis para votos.
+
+Ferramentas desenvolvidas para o nosso site:
+- Sistema de cadastro de novas listas de votações;
+- Sistema de exclusão das listas existentes;
+- O usuário consegue alterar seu nome, seu email ou a sua senha. Temos verificação se o email novo que o usuário esteaja colocando já exista ou não. Além disso a senha é criptografada para uma maior segurança;
+- Sitema de votação;
+- Sistema de resultados.

@@ -18,5 +18,12 @@
     "email": "caioba@gmail.com",
     "password": "$2b$10$abQFfv9ToMRUTGovYGEkTOGIGZXHgVYNeF5.umTwxy/CIGSSzqsWW",
     "admin": 0
+  },
+  {
+    "id": 4,
+    "username": "samis",
+    "email": "samis@hotmail.com",
+    "password": "$2b$10$bfx1nhfYYuA1XwvXkluiSOQX7Z/5mlq0CjSAACuxfWTZCpVS0DYiu",
+    "admin": 0
   }
 ]

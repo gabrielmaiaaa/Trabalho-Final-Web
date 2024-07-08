@@ -5,7 +5,7 @@ const express = require('express'); //npm i express
 const router = express.Router();
 
 //autenticacao e cryp
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');//npm i bcrypt
 const jwt = require('jsonwebtoken');
 
 //libs para banco de dados
@@ -49,7 +49,6 @@ router.post('/login', async (req,res) => {
                 //O primeiro parametro é o que queremos serializar (o proprio user)
                 //O segundo parametro é a chave secreta do token. Está no arquivo .env
                 //La coloquei as instruções de como gerar
-                console.log('FAZ O L');
                 const tokenAcesso = jwt.sign(user,process.env.TOKEN);
                 return res.status(200).json({
                     token: tokenAcesso,
