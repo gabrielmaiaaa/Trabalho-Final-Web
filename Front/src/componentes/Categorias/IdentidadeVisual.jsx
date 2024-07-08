@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function IdentidadeVisual() {
-  const {id, titulo, descricao, url, jogos} = useLocation().state
+  const {titulo, descricao, url, jogos} = useLocation().state
 
   const [jogo, setJogo] = useState([]);
 
@@ -60,8 +60,9 @@ export default function IdentidadeVisual() {
     }
 
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/verListaJogo' state={{id,titulo,descricao,url,jogos}}>Voltar para lista</Link> </button>
-    <button> <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
+    <button> <Link to='/tema' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+    <button> <Link to='/'>Mostrar todos</Link> </button>
+    <button> <Link to='/polimento' state={{titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
     </>
   )
 }
