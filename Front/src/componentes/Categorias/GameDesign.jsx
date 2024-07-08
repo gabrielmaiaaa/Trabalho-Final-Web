@@ -88,9 +88,8 @@ export default function GameDesign() {
       ))
     }
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/polimento' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/'>Mostrar todos</Link> </button>
-    <button> <Link to='/jogabilidade' state={{titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
+    <button> <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+    <button> <Link to='/jogabilidade' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
     </>
   )
 }

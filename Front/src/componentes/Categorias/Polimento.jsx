@@ -90,9 +90,8 @@ export default function Polimento() {
     }
 
     <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/identidade-visual' state={{titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/'>Mostrar todos</Link> </button>
-    <button> <Link to='/game-design' state={{titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
+    <button> <Link to='/identidade-visual' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+    <button> <Link to='/game-design' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
     </>
   )
 }
