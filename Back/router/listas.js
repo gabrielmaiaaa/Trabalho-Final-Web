@@ -21,7 +21,8 @@ router.post('/criar-lista', async (req,res) => {
         }
     }
 
-    const id = listaEncontrada.length + 1;
+    let id = Date.now();
+    
 
     const lista = new Lista(id, titulo, descricao, url);
     console.log(jogos);
