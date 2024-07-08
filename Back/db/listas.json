@@ -35,5 +35,56 @@
     "descricao": "fjisebfvbewufvweufvuewf",
     "url": "https://itch.io/c/4496505/gamedevtv-jam-2024-baby-jam",
     "jogos": []
+  },
+  {
+    "id": 7,
+    "titulo": "dasadsadsa",
+    "descricao": "dfdsfds",
+    "url": "https://github.com/dev-u",
+    "jogos": []
+  },
+  {
+    "id": 8,
+    "titulo": "ssfadfsadsad",
+    "descricao": "dsfdsfsf",
+    "url": "https://chatgpt.com/c/8ba43e56-6f3a-4948-bce8-f960b6fb3172",
+    "jogos": [
+      [
+        "Taika",
+        "Persecution - The Elevator",
+        "NightGhast",
+        "Heffelfinger Demo",
+        "Shadow of Pharos Soundtrack",
+        "Forgotten Fears",
+        "Nordhold"
+      ]
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Varios",
+    "descricao": "dssadasdsa",
+    "url": "https://www.google.com/search?client=opera-gx&q=api+web+steam&sourceid=opera&ie=UTF-8&oe=UTF-8",
+    "jogos": [
+      "Qazaq: Son of the Sun",
+      "Taika",
+      "Persecution - The Elevator",
+      "NightGhast",
+      "Heffelfinger Demo",
+      "Shadow of Pharos Soundtrack",
+      "Forgotten Fears",
+      "Nordhold",
+      "Nectarmare Demo",
+      "Tupi - The Legend of Arariboia",
+      "Doodle Harmony Idle Merge Demo",
+      "LivingForest",
+      "NoteCaptor Original Soundtrack",
+      "La Salamanca \"Prologue\" Demo",
+      "Bug Ball 3D Demo",
+      "Story of the Lost Dot Demo",
+      "Unity-chan the SharpShooter! Demo",
+      "Escape From Benjamin's Room",
+      "Whistling Waters Demo"
+    ]
   }
 ]

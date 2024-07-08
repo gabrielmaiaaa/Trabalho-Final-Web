@@ -16,7 +16,7 @@ export default function CriarListaJogos() {
   const navigate = useNavigate();
 
   const [msg, setMsg] = useState('');
-  const [jogos, setJoogs] = useState([]);
+  const [jogos, setJogos] = useState([]);
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -31,7 +31,7 @@ export default function CriarListaJogos() {
       try{
         const resposta = await axios.get('http://localhost:3000/jogos/dados');
         if(resposta.status === 200)
-          setJoogs(resposta.data.jogos);
+          setJogos(resposta.data);
       } catch (erro){
         console.log(erro);
       }
@@ -76,7 +76,7 @@ export default function CriarListaJogos() {
         <option value="">Selecione um Jogo</option>
         {
           jogos.map((jogo, index) => (
-            <option key={index} value={jogo.titulo}>{jogo.titulo}</option>
+            <option key={index} value={jogo.name}>{jogo.name}</option>
           ))
         }
       </select>
