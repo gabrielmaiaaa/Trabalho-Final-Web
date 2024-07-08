@@ -2,44 +2,58 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import {Link, useLocation} from 'react-router-dom' //npm i react-router-dom
-import Configuracao from './Configuracao';
 import ListaJogos from '../ListasVotacao/ListaJogos';
 
 export default function PaginaInicial() {
 
   const [propriedades, setPropriedades] = useState([]);
   const [dadosListas, setDadosListas] = useState([]);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+  const [authorized, setAuthorized] = useState(false);
+  const email = sessionStorage.getItem('email');
 
-  const {email} = useLocation().state
-
-    useEffect(() =>{
-        
-        async function buscaPropriedades(){
-            const dado = await axios.get('http://localhost:3000/auth/usuarios');
-            //Armazenar a resposta em um state
-            setPropriedades(dado.data);
-            console.log(dado.data);
-        }
-        buscaPropriedades();
-    },[]);
-
-    useEffect(() => {
-      async function buscaLista(){
-        const list = await axios.get('http://localhost:3000/listas/dados');
-        setDadosListas(list.data);
-      }
-      buscaLista();
-    }, []);
-    
-    useEffect(() => {
-      const usuario = propriedades.find(p => p.email === email);
-      setUser(usuario);
-    }, [propriedades, email]);
-
-    if (!user) {
-      console.log("Carregando ou usuário não encontrado...");
+  const config = {
+    headers: {
+        Authorization: "Bearer " + sessionStorage.getItem('token')
     }
+  }
+
+  useEffect(() =>{
+      
+      async function buscaPropriedades(){
+        try{
+          const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
+          if(resposta.status === 200){
+            setPropriedades(resposta.data);
+            setAuthorized(true);
+            const usuario = resposta.data.find(p => p.email === email);
+            setUser(usuario);
+          }
+        } catch(erro){
+          console.log(erro);
+          setAuthorized(false);            
+        }
+      }
+      buscaPropriedades();
+  },[]);
+
+  useEffect(() => {
+    async function buscaLista(){
+      try{
+        const list = await axios.get('http://localhost:3000/listas/dados', config);
+        setDadosListas(list.data);
+      } catch (erro) {
+        console.log(erro);
+      }
+    }
+    buscaLista();
+  }, []);
+
+  if (!user) {
+    console.log("Carregando ou usuário não encontrado...");
+  }
+
+  if(!authorized) return <p>Sem Autorização</p>
 
   return (
     <>
@@ -50,6 +64,7 @@ export default function PaginaInicial() {
     </div>
     <button><Link to='/criarListaJogos'>Criar Lista</Link></button>
     <button><Link to='/configuracao' state={{...user}}>Configuração</Link></button>
+    <button><Link to='/'>Sair da Conta</Link></button>
     </>
   )
 }

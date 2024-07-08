@@ -7,6 +7,30 @@ export default function Polimento() {
 
   const [jogo, setJogo] = useState([]);
 
+  const [authorized, setAuthorized] = useState(false);
+
+  const config = {
+    headers: {
+        Authorization: "Bearer " + sessionStorage.getItem('token')
+    }
+  }
+
+  useEffect(() =>{
+      
+    async function validaAcesso(){
+      try{
+        const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
+        if(resposta.status === 200){
+          setAuthorized(true);
+        }
+      } catch(erro){
+        console.log(erro);
+        setAuthorized(false);            
+      }
+    }
+    validaAcesso();
+  },[]);
+
   useEffect(() => {
     const acharJogo = async () => {
       try {
@@ -19,6 +43,8 @@ export default function Polimento() {
     }
     acharJogo();
   }, [jogos])
+
+  if(!authorized) return <p>Sem Autorização</p>
 
   return (
     <>

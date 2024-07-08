@@ -17,6 +17,7 @@ export default function CriarListaJogos() {
 
   const [msg, setMsg] = useState('');
   const [jogos, setJogos] = useState([]);
+  const [authorized, setAuthorized] = useState(false);
 
   const form = useForm({
     resolver: yupResolver(schema)
@@ -26,12 +27,35 @@ export default function CriarListaJogos() {
 
   const {errors} = formState;
 
+  const config = {
+    headers: {
+        Authorization: "Bearer " + sessionStorage.getItem('token')
+    }
+  }
+  
+  useEffect(() =>{
+      
+    async function validaAcesso(){
+      try{
+        const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
+        if(resposta.status === 200){
+          setAuthorized(true);
+        }
+      } catch(erro){
+        console.log(erro);
+        setAuthorized(false);            
+      }
+    }
+    validaAcesso();
+  },[]);
+
   useEffect(() => {
     const acharJogos = async () => {
       try{
         const resposta = await axios.get('http://localhost:3000/jogos/dados');
-        if(resposta.status === 200)
+        if(resposta.status === 200){
           setJogos(resposta.data);
+        }
       } catch (erro){
         console.log(erro);
       }
@@ -54,6 +78,8 @@ export default function CriarListaJogos() {
   const handleBack = () => {
     navigate(-1);
   };
+
+  if(!authorized) return <p>Sem Autorização</p>
 
   return (
     <>

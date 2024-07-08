@@ -22,7 +22,7 @@ const User = require('../models/User');
 //dotenv
 require('dotenv').config();
 
-router.get('/usuarios', (req,res) =>{
+router.get('/usuarios', autenticadorToken, (req,res) =>{
 
     //Devolve as propriedades em formato JSON
     res.status(200).json(usuariosCadastrados);
@@ -50,7 +50,11 @@ router.post('/login', async (req,res) => {
                 //O segundo parametro é a chave secreta do token. Está no arquivo .env
                 //La coloquei as instruções de como gerar
                 const tokenAcesso = jwt.sign(user,process.env.TOKEN);
-                return res.status(200).json(tokenAcesso);
+                return res.status(200).json({
+                    token: tokenAcesso,
+                    id: user.id,
+                    email: user.email
+                });
             }
             else
                 return res.status(422).send(`Usuario ou senhas incorretas.`);
@@ -91,7 +95,73 @@ router.post('/create', async (req,res) => {
     //Salva user no "banco"
     usuariosCadastrados.push(user);
     fs.writeFileSync(bdPath,JSON.stringify(usuariosCadastrados,null,2));
-    res.send(`Tudo certo usuario criado com sucesso. id=${id}`);
+    res.status(200).send(`Tudo certo usuario criado com sucesso. id=${id}`);
 });
+
+router.put('/atualizar', async (req,res) => {
+    const {id, username, email, password, admin} = req.body;
+    let cont = 0;
+
+    for (let users of usuariosCadastrados){
+        if(users.email === email){
+            cont = cont + 1;
+            if(cont === 2)
+                return res.status(409).send(`Usuario com email ${email} já existe.`);
+        }   
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const passwordCrypt = await bcrypt.hash(password,salt);
+
+    const novoDados = {
+        id,
+        username,
+        email,
+        password: passwordCrypt,
+        admin
+    }
+
+    const acharUser = (p) => {
+        return p.email === email;
+    }
+
+    const index = usuariosCadastrados.findIndex(acharUser);
+
+    usuariosCadastrados.splice(index, 1, novoDados);
+    fs.writeFileSync(bdPath, JSON.stringify(usuariosCadastrados,null,2));
+    res.status(200).send('Usuário Atualizado');
+});
+
+router.delete('/deletar/:email', (req,res) => {
+    const {email} = req.params;
+    console.log(email);
+
+    const acharIndex = (p) => {
+        return p.email === email;
+    }
+
+    const index = usuariosCadastrados.findIndex(acharIndex);
+    console.log(index);
+    console.log(usuariosCadastrados[index]);
+
+    usuariosCadastrados.splice(index, 1);
+    console.log(usuariosCadastrados);
+    fs.writeFileSync(bdPath,JSON.stringify(usuariosCadastrados, null, 2));
+    return res.status(200).send('Usuário Removido');
+});
+
+function autenticadorToken(req, res, next){
+    const authH = req.headers['authorization'];
+    const token = authH && authH.split(' ')[1];
+    if(token === null) return res.status(401).send('Token não encontrado');
+    
+    try{
+        const user = jwt.verify(token, process.env.TOKEN);
+        req.user = user;
+        next();  //Se token é válido, avança chamando next()
+    } catch (error) {
+        res.status(403).send('Token inválido')
+    }
+}
 
 module.exports = router;
