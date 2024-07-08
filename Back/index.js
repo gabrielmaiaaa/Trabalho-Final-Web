@@ -11,16 +11,16 @@ app.use(cors());
 app.use(express.json())
 
 //importar rota das votações
-const votacoesRoutes = require('./router/votacoes');
 const authRoutes = require('./router/auth');
 const listasRoutes = require('./router/listas');
 const jogosRoutes = require('./router/jogos');
+const votarRoutes = require('./router/votar');
 
 //rotas para os dois serviços
 app.use('/auth', authRoutes);
-app.use('/votacoes', votacoesRoutes);
 app.use('/listas', listasRoutes);
 app.use('/jogos', jogosRoutes);
+app.use('/votar', votarRoutes);
 
 app.listen(3000, ()=>{
     console.log('Servidor Online');
