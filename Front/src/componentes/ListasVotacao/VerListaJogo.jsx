@@ -35,7 +35,7 @@ export default function VerListaJogo() {
     validaAcesso();
   },[]);
 
-  const handleDelete = async () =>{
+  const handleDelete = async () => {
     let c = confirm(`Deseja exluir a lista ${titulo}?`);
     if(c === true){
       try {
