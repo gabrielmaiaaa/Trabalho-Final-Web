@@ -75,6 +75,7 @@ export default function IdentidadeVisual() {
 
   return (
     <>
+    <h1>Identidade Visual</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {

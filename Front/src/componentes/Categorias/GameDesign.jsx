@@ -76,6 +76,7 @@ export default function GameDesign() {
 
   return (
     <>
+    <h1>Game Design</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {

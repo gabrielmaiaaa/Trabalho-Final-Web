@@ -77,6 +77,7 @@ export default function Polimento() {
 
   return (
     <>
+    <h1>Polimento</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {

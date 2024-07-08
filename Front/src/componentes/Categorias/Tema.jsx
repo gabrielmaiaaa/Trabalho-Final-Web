@@ -77,6 +77,7 @@ export default function Tema() {
 
   return (
     <>
+    <h1>Tema</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {

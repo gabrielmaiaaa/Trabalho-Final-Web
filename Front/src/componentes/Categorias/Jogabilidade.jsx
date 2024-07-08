@@ -77,6 +77,7 @@ export default function Jogabilidade() {
 
   return (
     <>
+    <h1>Jogabilidade</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {

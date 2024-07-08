@@ -77,6 +77,7 @@ export default function Originalidade() {
 
   return (
     <>
+    <h1>Originalidade</h1>
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {
