@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Originalidade() {
-  const {titulo, descricao, url, jogos} = useLocation().state
+  const {id, titulo, descricao, url, jogos} = useLocation().state
 
   const [jogo, setJogo] = useState([]);
+
+  const categoria = 'originalidade';
 
   const [authorized, setAuthorized] = useState(false);
 
@@ -44,6 +46,33 @@ export default function Originalidade() {
     acharJogo();
   }, [jogos])
 
+  const vote = async (gameId) => {
+    const competicaoId = id;
+
+    console.log("Dados enviados:", {
+      competicaoId,
+      categoria,
+      gameId
+    });
+
+    try {
+      const response = await axios.post('http://localhost:3000/votar/votando', {
+        competicaoId,
+        categoria,
+        gameId
+      });
+
+      console.log("Resposta recebida:", response);
+
+      if (response.data.success) {
+        alert('Voto registrado com sucesso!');
+      }
+
+    } catch (error) {
+      console.log('Erro:', error.response ? error.response.data : error.message);
+    }
+  };
+
   if(!authorized) return <p>Sem Autorização</p>
 
   return (
@@ -51,8 +80,9 @@ export default function Originalidade() {
     <h2>{titulo}</h2>
     <p>{descricao}</p>
     {
-      jogo.map((game, index) => (
-        <button key={index}>
+     jogo.map((game, index) => (
+        
+        <button key={index} onClick={() => vote(index)}>
           <img src={game.image} alt={game.name} />
           <p>Votar</p>
         </button>

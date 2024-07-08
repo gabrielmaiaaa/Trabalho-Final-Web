@@ -4,6 +4,10 @@ class Votacao {
         this.categorias = [
             {name: 'gameDesign', votos: {}},
             {name: 'identidadeVisual', votos: {}},
+            {name: 'jogabilidade', votos: {}},
+            {name: 'originalidade', votos: {}},
+            {name: 'polimento', votos: {}},
+            {name: 'tema', votos: {}}
         ];
     }        
 

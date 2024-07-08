@@ -15,5 +15,66 @@
         "votos": {}
       }
     ]
+  },
+  {
+    "id": 8,
+    "categorias": [
+      {
+        "name": "gameDesign",
+        "votos": {
+          "0": 1
+        }
+      },
+      {
+        "name": "identidadeVisual",
+        "votos": {}
+      },
+      {
+        "name": "jogabilidade",
+        "votos": {}
+      },
+      {
+        "name": "originalidade",
+        "votos": {}
+      },
+      {
+        "name": "polimento",
+        "votos": {}
+      },
+      {
+        "name": "tema",
+        "votos": {}
+      }
+    ]
+  },
+  {
+    "categorias": [
+      {
+        "name": "gameDesign",
+        "votos": {
+          "1": 1
+        }
+      },
+      {
+        "name": "identidadeVisual",
+        "votos": {}
+      },
+      {
+        "name": "jogabilidade",
+        "votos": {}
+      },
+      {
+        "name": "originalidade",
+        "votos": {}
+      },
+      {
+        "name": "polimento",
+        "votos": {}
+      },
+      {
+        "name": "tema",
+        "votos": {}
+      }
+    ]
   }
 ]

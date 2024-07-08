@@ -43,7 +43,7 @@ export default function GameDesign() {
     }
     acharJogo();
   }, [jogos]);
-  console.log(jogo);
+  
 
   const vote = async (gameId) => {
     const competicaoId = id;

@@ -1,49 +1,5 @@
 [
   {
-    "id": 1,
-    "titulo": "Atari",
-    "descricao": "lorem loremlorem loremlorem loremlorem loremlorem loremlorem loremlorem loremlorem lorem",
-    "jogos": []
-  },
-  {
-    "id": 2,
-    "titulo": "Peixe",
-    "descricao": "dsadasdasd",
-    "jogos": []
-  },
-  {
-    "id": 3,
-    "titulo": "sdfdsfsf",
-    "descricao": "sdfdsfsdfsdf",
-    "jogos": []
-  },
-  {
-    "id": 4,
-    "titulo": "dasdsad",
-    "descricao": "sddfd3r",
-    "jogos": []
-  },
-  {
-    "id": 5,
-    "titulo": "dasdsadsad",
-    "descricao": "fwef3gtftrbh54ygh43icao",
-    "jogos": []
-  },
-  {
-    "id": 6,
-    "titulo": "PEixeGato",
-    "descricao": "fjisebfvbewufvweufvuewf",
-    "url": "https://itch.io/c/4496505/gamedevtv-jam-2024-baby-jam",
-    "jogos": []
-  },
-  {
-    "id": 7,
-    "titulo": "dasadsadsa",
-    "descricao": "dfdsfds",
-    "url": "https://github.com/dev-u",
-    "jogos": []
-  },
-  {
     "id": 8,
     "titulo": "ssfadfsadsad",
     "descricao": "dsfdsfsf",
