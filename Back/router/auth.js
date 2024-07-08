@@ -99,14 +99,26 @@ router.post('/create', async (req,res) => {
     res.status(200).send(`Tudo certo usuario criado com sucesso. id=${id}`);
 });
 
-router.put('/atualizar', (req,res) => {
+router.put('/atualizar', async (req,res) => {
     const {id, username, email, password, admin} = req.body;
+    let cont = 0;
+
+    for (let users of usuariosCadastrados){
+        if(users.email === email){
+            cont = cont + 1;
+            if(cont === 2)
+                return res.status(409).send(`Usuario com email ${email} já existe.`);
+        }   
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const passwordCrypt = await bcrypt.hash(password,salt);
 
     const novoDados = {
         id,
         username,
         email,
-        password,
+        password: passwordCrypt,
         admin
     }
 
@@ -114,10 +126,10 @@ router.put('/atualizar', (req,res) => {
         return p.email === email;
     }
 
-    const index = usuarios.findIndex(acharUser);
+    const index = usuariosCadastrados.findIndex(acharUser);
 
-    usuarios.splice(index, 1, novoDados);
-    fs.writeFileSync(bdPath, JSON.stringify(usuarios,null,2));
+    usuariosCadastrados.splice(index, 1, novoDados);
+    fs.writeFileSync(bdPath, JSON.stringify(usuariosCadastrados,null,2));
     res.status(200).send('Usuário Atualizado');
 });
 

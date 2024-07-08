@@ -43,7 +43,6 @@ router.delete('/deletar-lista/:id', async (req, res) => {
     const index = listaEncontrada.findIndex(acharIndex);
 
     listaEncontrada.splice(index, 1);
-    console.log(listaEncontrada);
     fs.writeFileSync(bdPath, JSON.stringify(listaEncontrada,null,2));
     return res.status(200).send('Lista removida');
 })
