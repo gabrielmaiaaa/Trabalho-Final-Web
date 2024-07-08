@@ -13,4 +13,11 @@
     "password": "$2b$10$kzjoKftxHAMhWc1yzcil5eQUFURzx5o3gvgfv3NnCC4re0nC1EsPi"
   },
   {}
+  {
+    "id": 4,
+    "username": "caioba",
+    "email": "caioba@gmail.com",
+    "password": "$2b$10$abQFfv9ToMRUTGovYGEkTOGIGZXHgVYNeF5.umTwxy/CIGSSzqsWW",
+    "admin": 0
+  }
 ]
