@@ -64,7 +64,7 @@ export default function VerListaJogo() {
       <p>Vote na catagoria: <Link to='/tema' state={{id,titulo,descricao,url,jogos}}>Tema</Link></p>
       <button> <Link to='/paginaInicial' state={{email}}>Voltar</Link> </button>
       <button onClick={handleDelete}>Excluir Lista</button>
-      <button> <Link to='/resultados' state={{id}}>Resultados</Link> </button>
+      <button> <Link to='/resultados' state={{id,titulo}}>Resultados</Link> </button>
     </>
   )
 }

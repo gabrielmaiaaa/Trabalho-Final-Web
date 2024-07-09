@@ -11,7 +11,7 @@ const votos = JSON.parse(fs.readFileSync(bdPath, {encoding: 'utf-8'}));
 
 router.post('/votando', (req,res) => {
     const {competicaoId, categoria, gameId}= req.body;
-   
+
     let votacao = votos.find(v => v.id === competicaoId);
 
     if(!votacao){
@@ -25,11 +25,11 @@ router.post('/votando', (req,res) => {
 
     fs.writeFileSync(bdPath, JSON.stringify(votos, null, 2));
     res.status(200).json({success: true, message: 'Voto registrado com sucesso!'});
-    
 
-    
-    
-    
+
+
+
+
 })
 
 module.exports = router;
