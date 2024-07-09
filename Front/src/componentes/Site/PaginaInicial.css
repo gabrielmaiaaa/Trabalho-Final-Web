@@ -1,4 +1,4 @@
-/* Estilos para a página inicial */
+
 .container {
      display: flex;
      position: relative;
@@ -7,7 +7,7 @@
      padding: 20px;
    }
    
-   /* Estilos para o símbolo no canto superior esquerdo */
+  
    .symbol {
      position: fixed;
      top: 20px;
@@ -21,14 +21,14 @@
      align-items: center;
      cursor: pointer;
      transition: background-color 0.3s ease;
-     z-index: 10; /* Garante que o símbolo esteja acima dos outros elementos */
+     z-index: 10; 
    }
    
    .symbol:hover {
      background-color: rgba(255, 255, 255, 0.8);
    }
    
-   /* Estilos para o menu lateral */
+   
    .sidebar {
      position: fixed;
      top: 0;
@@ -38,11 +38,11 @@
      background-color: rgba(0, 0, 0, 0.7);
      overflow-x: hidden;
      transition: 0.5s;
-     z-index: 9; /* Garante que o menu esteja abaixo do símbolo */
+     z-index: 9; 
    }
    
    .sidebar.open {
-     width: 20%; /* Define a largura do menu lateral */
+     width: 20%; 
    }
    
    .options {
@@ -62,10 +62,10 @@
      text-decoration: underline;
    }
    
-   /* Estilos para os botões de opção */
+   
    .option-buttons {
      position: fixed;
-     top: 70px; /* Posiciona os botões um pouco abaixo do símbolo */
+     top: 70px; 
      left: 0;
      width: 20%;
      background-color: rgba(255, 255, 255, 0.9);

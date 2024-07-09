@@ -13,7 +13,7 @@
    
    .container-configuracao h1 {
      margin-top: 0.2rem;
-     margin-bottom: 1rem; /* Reduzido para menos espaço abaixo do título */
+     margin-bottom: 1rem; 
    }
    
    .container-configuracao form {
@@ -22,12 +22,12 @@
    }
    
    .container-configuracao .input-group {
-     margin-bottom: 15px; /* Aumentado o espaçamento entre os campos */
+     margin-bottom: 15px; 
    }
    
    .container-configuracao label {
      font-weight: bold;
-     margin-bottom: 5px; /* Espaçamento abaixo dos labels */
+     margin-bottom: 5px; 
    }
    
    .container-configuracao input {
@@ -39,12 +39,12 @@
    
    .container-configuracao .button-group {
      display: flex;
-     gap: 10px; /* Espaçamento entre os botões */
-     margin-top: 15px; /* Aumentado o espaçamento entre os botões e o final do formulário */
+     gap: 10px; 
+     margin-top: 15px; 
    }
    
    .container-configuracao button {
-     flex: 1; /* Botões ocupam todo o espaço disponível */
+     flex: 1; 
      padding: 15px 0;
      background-color: #ffffff;
      color: #080710;
