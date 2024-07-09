@@ -1,0 +1,51 @@
+.game-design-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-design-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.game-design-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.game-design-container p {
+  margin-bottom: 20px;
+}
+
+.game-design-container button {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.game-design-container button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.game-design-container button p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.game-design-container button a {
+  color: #fff;
+  text-decoration: none;
+}

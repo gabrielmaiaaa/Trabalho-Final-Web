@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": 1720490652885,
+    "categorias": [
+      {
+        "name": "Game Design",
+        "votos": {
+          "6": 1
+        }
+      },
+      {
+        "name": "Identidade Visual",
+        "votos": {
+          "1": 1,
+          "5": 1
+        }
+      },
+      {
+        "name": "Jogabilidade",
+        "votos": {
+          "5": 1
+        }
+      },
+      {
+        "name": "Originalidade",
+        "votos": {
+          "6": 1
+        }
+      },
+      {
+        "name": "Polimento",
+        "votos": {
+          "2": 1
+        }
+      },
+      {
+        "name": "Tema",
+        "votos": {
+          "6": 1
+        }
+      }
+    ]
+  }
+]

@@ -1,9 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './IdentidadeVisual.css';
 
 export default function IdentidadeVisual() {
-  const {id, titulo, descricao, url, jogos} = useLocation().state
+  const { id, titulo, descricao, url, jogos } = useLocation().state;
   const [jogo, setJogo] = useState([]);
   const categoria = 'Identidade Visual';
 
@@ -11,38 +12,37 @@ export default function IdentidadeVisual() {
 
   const config = {
     headers: {
-        Authorization: "Bearer " + sessionStorage.getItem('token')
+      Authorization: "Bearer " + sessionStorage.getItem('token')
     }
-  }
+  };
 
-  useEffect(() =>{
-      
-    async function validaAcesso(){
-      try{
+  useEffect(() => {
+    async function validaAcesso() {
+      try {
         const resposta = await axios.get('http://localhost:3000/auth/usuarios', config);
-        if(resposta.status === 200){
+        if (resposta.status === 200) {
           setAuthorized(true);
         }
-      } catch(erro){
+      } catch (erro) {
         console.log(erro);
-        setAuthorized(false);            
+        setAuthorized(false);
       }
     }
     validaAcesso();
-  },[]);
+  }, []);
 
   useEffect(() => {
     const acharJogo = async () => {
       try {
         const resposta = await axios.get(`http://localhost:3000/jogos/jogoEspecifico/${jogos}`);
-        if(resposta.status === 200)
-          setJogo(resposta.data)
-      } catch (erro){
+        if (resposta.status === 200)
+          setJogo(resposta.data);
+      } catch (erro) {
         console.log(erro);
       }
-    }
+    };
     acharJogo();
-  }, [jogos])
+  }, [jogos]);
 
   const vote = async (gameId, nome) => {
     const competicaoId = id;
@@ -53,46 +53,44 @@ export default function IdentidadeVisual() {
       gameId
     });
     let c = confirm(`Deseja votar em ${nome}`);
-    if(c === true){
+    if (c === true) {
       try {
         const response = await axios.post('http://localhost:3000/votar/votando', {
           competicaoId,
           categoria,
           gameId
         });
-  
+
         console.log("Resposta recebida:", response);
-  
+
         if (response.data.success) {
           alert('Voto registrado com sucesso!');
         }
-  
+
       } catch (error) {
         console.log('Erro:', error.response ? error.response.data : error.message);
       }
     }
   };
 
-  if(!authorized) return <p>Sem Autorização</p>
+  if (!authorized) return <p>Sem Autorização</p>;
 
   return (
-    <>
-    <h1>Identidade Visual</h1>
-    <h2>{titulo}</h2>
-    <p>{descricao}</p>
-    {
-      jogo.map((game, index) => (
-        
-        <button key={index} onClick={() => vote(index,game.name)}>
-          <img src={game.image} alt={game.name} />
-          <p>Votar</p>
-        </button>
-      ))
-    }
-
-    <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/verListaJogo' state={{id,titulo,descricao,url,jogos}}>Voltar para Lista</Link> </button>
-    <button> <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
-    </>
-  )
+    <div className="identidade-visual-container">
+      <h1>Identidade Visual</h1>
+      <h2>{titulo}</h2>
+      <p>{descricao}</p>
+      {
+        jogo.map((game, index) => (
+          <button key={index} onClick={() => vote(index, game.name)}>
+            <img src={game.image} alt={game.name} />
+            <p>Votar</p>
+          </button>
+        ))
+      }
+      <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
+      <button> <Link to='/verListaJogo' state={{ id, titulo, descricao, url, jogos }}>Voltar para Lista</Link> </button>
+      <button> <Link to='/polimento' state={{ id, titulo, descricao, url, jogos }}>Próxima Categoria</Link> </button>
+    </div>
+  );
 }

@@ -1,0 +1,51 @@
+.jogabilidade-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.jogabilidade-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.jogabilidade-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.jogabilidade-container p {
+  margin-bottom: 20px;
+}
+
+.jogabilidade-container button {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.jogabilidade-container button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.jogabilidade-container button p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.jogabilidade-container button a {
+  color: #fff;
+  text-decoration: none;
+}

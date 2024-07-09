@@ -1,9 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Polimento.css';
 
 export default function Polimento() {
-  const {id, titulo, descricao, url, jogos} = useLocation().state
+  const { id, titulo, descricao, url, jogos } = useLocation().state;
   const [jogo, setJogo] = useState([]);
   const categoria = 'Polimento';
 
@@ -76,23 +77,21 @@ export default function Polimento() {
   if(!authorized) return <p>Sem Autorização</p>
 
   return (
-    <>
-    <h1>Polimento</h1>
-    <h2>{titulo}</h2>
-    <p>{descricao}</p>
-    {
-      jogo.map((game, index) => (
-        
-        <button key={index} onClick={() => vote(index,game.name)}>
-          <img src={game.image} alt={game.name} />
-          <p>Votar</p>
-        </button>
-      ))
-    }
-
-    <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/identidade-visual' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/game-design' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
-    </>
+    <div className="polimento-container">
+      <h1>Polimento</h1>
+      <h2>{titulo}</h2>
+      <p>{descricao}</p>
+      {
+        jogo.map((game, index) => (
+          <button key={index} onClick={() => vote(index, game.name)}>
+            <img src={game.image} alt={game.name} />
+            <p>Votar</p>
+          </button>
+        ))
+      }
+      <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
+      <button> <Link to='/identidade-visual' state={{id, titulo, descricao, url, jogos}}>Voltar Categoria</Link> </button>
+      <button> <Link to='/game-design' state={{id, titulo, descricao, url, jogos}}>Próxima Categoria</Link> </button>
+    </div>
   )
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import './GameDesign.css';
 
 export default function GameDesign() {
   const {id, titulo, descricao, url, jogos} = useLocation().state;
@@ -77,22 +78,22 @@ export default function GameDesign() {
   if(!authorized) return <p>Sem Autorização</p>
 
   return (
-    <>
-    <h1>Game Design</h1>
-    <h2>{titulo}</h2>
-    <p>{descricao}</p>
-    {
-      jogo.map((game, index) => (
-        
-        <button key={index} onClick={() => vote(index, game.name)}>
-          <img src={game.image} alt={game.name} />
-          <p>Votar</p>
-        </button>
-      ))
-    }
-    <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
-    <button> <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
-    <button> <Link to='/jogabilidade' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
-    </>
-  )
+    <div className="game-design-container">
+      <h1>Game Design</h1>
+      <h2>{titulo}</h2>
+      <p>{descricao}</p>
+      {
+        jogo.map((game, index) => (
+          
+          <button key={index} onClick={() => vote(index, game.name)}>
+            <img src={game.image} alt={game.name} />
+            <p>Votar</p>
+          </button>
+        ))
+      }
+      <button> <Link to={`${url}`}>Página no itch.io</Link> </button>
+      <button> <Link to='/polimento' state={{id,titulo,descricao,url,jogos}}>Voltar Categoria</Link> </button>
+      <button> <Link to='/jogabilidade' state={{id,titulo,descricao,url,jogos}}>Próxima Categoria</Link> </button>
+    </div>
+  );
 }
