@@ -12,5 +12,12 @@
     "email": "caioba@gmail.com",
     "password": "$2b$10$S1Kliiv6POb6abSJ7GNrUORfhJWSZ0kpauRYopTIkqxkjv6DIX1m2",
     "admin": 0
+  },
+  {
+    "id": 1720493201142,
+    "username": "caioba",
+    "email": "redkawzzin@gmail.com",
+    "password": "$2b$10$.JA1MZfTSgrGDWqpT/IWuuWvJgNV2cbILaMyM0B/1JsElQswvgRL2",
+    "admin": 0
   }
 ]
