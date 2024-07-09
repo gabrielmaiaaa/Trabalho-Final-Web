@@ -82,7 +82,7 @@ export default function Configuracao() {
     }
   }
 
-  const handleBack = () => navigate(-1);
+  const handleBack = () => navigate('/paginaInicial');
 
   if(!authorized) return <p>Sem Autorização</p>;
 
