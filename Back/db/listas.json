@@ -1,57 +1,33 @@
 [
   {
-    "id": 9,
-    "titulo": "Varios",
-    "descricao": "dssadasdsa",
-    "url": "https://www.google.com/search?client=opera-gx&q=api+web+steam&sourceid=opera&ie=UTF-8&oe=UTF-8",
+    "id": 1720490652885,
+    "titulo": "DevTech JAM",
+    "descricao": "Jam desenvolvida pela Dev-U que aconteceu na HardTech",
+    "url": "https://itch.io/c/4496509/devtech-jam",
     "jogos": [
       "Qazaq: Son of the Sun",
       "Taika",
-      "Persecution - The Elevator",
-      "NightGhast",
-      "Heffelfinger Demo",
-      "Shadow of Pharos Soundtrack",
-      "Forgotten Fears",
-      "Nordhold",
-      "Nectarmare Demo",
-      "Tupi - The Legend of Arariboia",
-      "Doodle Harmony Idle Merge Demo",
-      "LivingForest",
-      "NoteCaptor Original Soundtrack",
-      "La Salamanca \"Prologue\" Demo",
-      "Bug Ball 3D Demo",
-      "Story of the Lost Dot Demo",
-      "Unity-chan the SharpShooter! Demo",
-      "Escape From Benjamin's Room",
-      "Whistling Waters Demo"
-    ]
-  },
-  {
-    "id": 3,
-    "titulo": "Phyll games",
-    "descricao": "Jogos que o phyll desenvolveu",
-    "url": "https://sigaa.unifei.edu.br/sigaa",
-    "jogos": [
-      "Qazaq: Son of the Sun",
-      "Nordhold",
-      "Lift: The Last Days of The Westwind Demo",
+      "Crazy Captain Cannon - Mission: Billionaire Buster",
+      "CraftCraft Demo",
+      "The Texas Chain Saw Massacre - Leland Outfit Pack 2",
+      "Cube Arena Beta",
       "Eleventh Hour",
-      "Caracoles Demo"
+      "Endless Onslaught"
     ]
   },
   {
-    "id": 1720472344598,
-    "titulo": "neguney",
-    "descricao": "aaa",
-    "url": "https://sigaa.unifei.edu.br/sigaa",
+    "id": 1720490769486,
+    "titulo": "GameDev.tv Jam 2024 - BABY JAM",
+    "descricao": "Jam desenvolvida pela Dev-U para o treinamento dos novatos que entraram no processo seletivo 2024.1",
+    "url": "https://itch.io/c/4496505/gamedevtv-jam-2024-baby-jam",
     "jogos": [
-      "Qazaq: Son of the Sun",
-      "Taika",
-      "Persecution - The Elevator",
-      "NightGhast",
-      "Heffelfinger Demo",
-      "Shadow of Pharos Soundtrack",
-      "Forgotten Fears"
+      "Nordhold",
+      "Vurgan's Core Playtest",
+      "Lift: The Last Days of The Westwind Demo",
+      "Crazy Captain Cannon - Mission: Billionaire Buster",
+      "Arcana Outcasts Demo",
+      "Project: Mist Demo",
+      "Caracoles Demo"
     ]
   }
 ]

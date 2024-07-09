@@ -71,7 +71,7 @@ export default function CriarListaJogos() {
         navigate(-1);
       }
     } catch (error) {
-      console.log(error.response.data);
+      setMsg(error.response.data);
     }
   }
 

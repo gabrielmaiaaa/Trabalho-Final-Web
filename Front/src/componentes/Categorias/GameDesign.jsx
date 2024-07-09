@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 export default function GameDesign() {
   const {id, titulo, descricao, url, jogos} = useLocation().state;
   const [jogo, setJogo] = useState([]);
-  const categoria = 'gameDesign';
+  const categoria = 'Game Design';
 
   const [authorized, setAuthorized] = useState(false);
 
@@ -45,7 +45,7 @@ export default function GameDesign() {
   }, [jogos]);
   
 
-  const vote = async (gameId) => {
+  const vote = async (gameId, nome) => {
     const competicaoId = id;
 
     console.log("Dados enviados:", {
@@ -53,22 +53,24 @@ export default function GameDesign() {
       categoria,
       gameId
     });
-
-    try {
-      const response = await axios.post('http://localhost:3000/votar/votando', {
-        competicaoId,
-        categoria,
-        gameId
-      });
-
-      console.log("Resposta recebida:", response);
-
-      if (response.data.success) {
-        alert('Voto registrado com sucesso!');
+    let c = confirm(`Deseja votar em ${nome}`);
+    if(c === true){
+      try {
+        const response = await axios.post('http://localhost:3000/votar/votando', {
+          competicaoId,
+          categoria,
+          gameId
+        });
+  
+        console.log("Resposta recebida:", response);
+  
+        if (response.data.success) {
+          alert('Voto registrado com sucesso!');
+        }
+  
+      } catch (error) {
+        console.log('Erro:', error.response ? error.response.data : error.message);
       }
-
-    } catch (error) {
-      console.log('Erro:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -82,7 +84,7 @@ export default function GameDesign() {
     {
       jogo.map((game, index) => (
         
-        <button key={index} onClick={() => vote(index)}>
+        <button key={index} onClick={() => vote(index, game.name)}>
           <img src={game.image} alt={game.name} />
           <p>Votar</p>
         </button>

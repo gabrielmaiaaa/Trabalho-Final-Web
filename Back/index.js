@@ -15,12 +15,14 @@ const authRoutes = require('./router/auth');
 const listasRoutes = require('./router/listas');
 const jogosRoutes = require('./router/jogos');
 const votarRoutes = require('./router/votar');
+const resultadosRoutes = require('./router/resultados');
 
 //rotas para os dois serviços
 app.use('/auth', authRoutes);
 app.use('/listas', listasRoutes);
 app.use('/jogos', jogosRoutes);
 app.use('/votar', votarRoutes);
+app.use('/resultados', resultadosRoutes);
 
 app.listen(3000, ()=>{
     console.log('Servidor Online');

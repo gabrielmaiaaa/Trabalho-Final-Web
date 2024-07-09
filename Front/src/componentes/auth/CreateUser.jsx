@@ -31,7 +31,7 @@ export default function CreateUser() {
       if(response.status === 200)
         setMsg('OK');
     }catch (error){
-      console.log(error.response.data);
+      setMsg(error.response.data);
     }
   }
 

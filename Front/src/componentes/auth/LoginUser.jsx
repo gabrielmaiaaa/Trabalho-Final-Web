@@ -21,6 +21,7 @@ export default function LoginUser() {
   const {register, handleSubmit, formState} = form;
 
   const {errors} = formState;
+  console.log(errors);
 
   const submit = async (data) => {
     try{
@@ -30,7 +31,7 @@ export default function LoginUser() {
       sessionStorage.setItem('email', response.data.email);
       setMsg('Usuário Autenticado');
     } catch (error){
-      console.log(error.response.data);
+      setMsg(error.response.data);
     }
   }
 
@@ -44,18 +45,18 @@ export default function LoginUser() {
 
         <label htmlFor="email" placeholder="email">Email</label>
         <input type="text"id='email' {...register('email')} />
-        <p className='erro'> {errors.email?.message} </p>
+        <p className='erro'>{errors.email?.message}</p>
 
         <label htmlFor="password">Senha</label>
         <input type="password" id='password' {...register('password')} />
-        <p className='erro'> {errors.password?.message} </p>
+        <p className='erro'>{errors.password?.message}</p>
 
         <button>Entrar</button>
       </form>
       <p className='server-response'>{msg}</p>
       <div className='realizar-cadastro'>
         Não possui conta?
-        <Link to='/criar-user'> Cadastro</Link>
+        <Link to='/criar-user'>Cadastro</Link>
       </div>
     </>
   )

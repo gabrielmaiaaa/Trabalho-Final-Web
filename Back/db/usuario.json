@@ -1,36 +1,9 @@
 [
   {
-    "id": 1,
-    "username": "Maia",
-    "email": "joaozin@gmail.com",
-    "password": "$2b$10$lhifBjl7npFWn01VfuHu0.HRBAMJSFil/CI/Ptc3yHk.Hw.aTlbnu",
-    "admin": 0
-  },
-  {
-    "id": 3,
-    "username": "krjkfgkbhgbf807",
-    "email": "gabrielmaia44.ofc@gmail.com",
-    "password": "$2b$10$kzjoKftxHAMhWc1yzcil5eQUFURzx5o3gvgfv3NnCC4re0nC1EsPi"
-  },
-  {
-    "id": 4,
-    "username": "caioba",
-    "email": "caioba@gmail.com",
-    "password": "$2b$10$E9jgHraTJH.7EaSf7HQ7kOR79EFOA6KYUQHJZ95aVgSQ5VAy1C44C",
-    "admin": 0
-  },
-  {
-    "id": 4,
-    "username": "samis",
-    "email": "samis@hotmail.com",
-    "password": "$2b$10$bfx1nhfYYuA1XwvXkluiSOQX7Z/5mlq0CjSAACuxfWTZCpVS0DYiu",
-    "admin": 0
-  },
-  {
-    "id": 5,
-    "username": "caioba2",
-    "email": "caioteodoro2012@gmail.com",
-    "password": "$2b$10$9snGqHx4AEscd0Bk6DWECeu2JLjBUw0CHENYFQYOkqxz/aQWnypxO",
+    "id": 1720490507607,
+    "username": "Gabriel Maia",
+    "email": "gabrielmaia6743@gmail.com",
+    "password": "$2b$10$4waSzwJxzk.fGRhnSA.idOLifTLON1rcj.Q3/HDtCuMkSNKSngcm2",
     "admin": 0
   }
 ]

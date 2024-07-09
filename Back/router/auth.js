@@ -78,12 +78,12 @@ router.post('/create', async (req,res) => {
         if(users.email === email){
             //usuario já existe. Impossivel criar outro
             //Retornando o erro 409 para indicar conflito
-            return res.status(409).send(`Usuario com email ${email} já existe.`);
+            return res.status(409).send(`Usuario já existe.`);
         }   
     }
     //Deu certo. Vamos colocar o usuário no "banco"
     //Gerar um id incremental baseado na qt de users
-    const id = usuariosCadastrados.length + 1;
+    const id = Date.now();
     
     //gerar uma senha cryptografada
     const salt = await bcrypt.genSalt(10);
@@ -122,7 +122,7 @@ router.put('/atualizar', async (req,res) => {
     }
 
     const acharUser = (p) => {
-        return p.email === email;
+        return p.id === Number(id);
     }
 
     const index = usuariosCadastrados.findIndex(acharUser);
@@ -132,12 +132,11 @@ router.put('/atualizar', async (req,res) => {
     res.status(200).send('Usuário Atualizado');
 });
 
-router.delete('/deletar/:email', (req,res) => {
-    const {email} = req.params;
-    console.log(email);
+router.delete('/deletar/:id', (req,res) => {
+    const {id} = req.params;
 
     const acharIndex = (p) => {
-        return p.email === email;
+        return p.id === Number(id);
     }
 
     const index = usuariosCadastrados.findIndex(acharIndex);
