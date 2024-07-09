@@ -13,3 +13,8 @@ Ferramentas desenvolvidas para o nosso site:
 - O usuário consegue alterar seu nome, seu email ou a sua senha. Temos verificação se o email novo que o usuário esteaja colocando já exista ou não. Além disso a senha é criptografada para uma maior segurança;
 - Sitema de votação;
 - Sistema de resultados.
+
+A divisão da equipe foi feita da seguinte forma:
+- Frontend: Caio Teodoro.
+- Backend: Samuel Canellas.
+- FullStack: Gabriel Maia.
