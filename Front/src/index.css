@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Kdam Thmor Pro', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -29,10 +29,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: linear-gradient(to bottom, #000000, #2e3b4e); /* Gradiente de preto para azul acinzentado */
-}
-
-h1, h2, h3 {
-  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 h1 {

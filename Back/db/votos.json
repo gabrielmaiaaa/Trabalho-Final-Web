@@ -1,3 +1,36 @@
 [
-  
+  {
+    "id": 3,
+    "categorias": [
+      {
+        "name": "gameDesign",
+        "votos": {}
+      },
+      {
+        "name": "identidadeVisual",
+        "votos": {
+          "0": 3,
+          "1": 2
+        }
+      },
+      {
+        "name": "jogabilidade",
+        "votos": {}
+      },
+      {
+        "name": "originalidade",
+        "votos": {}
+      },
+      {
+        "name": "polimento",
+        "votos": {
+          "2": 1
+        }
+      },
+      {
+        "name": "tema",
+        "votos": {}
+      }
+    ]
+  }
 ]

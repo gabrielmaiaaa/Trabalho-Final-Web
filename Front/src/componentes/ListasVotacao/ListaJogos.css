@@ -1,0 +1,95 @@
+/* ListaJogos.css */
+
+.lista-jogos {
+     width: 500px; /* Ajusta a largura do botão */
+     height: 150px; /* Ajusta a altura do botão */
+     margin-bottom: 20px;
+   }
+   
+   .lista-jogos button {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     padding: 0;
+     background-color: rgba(0, 0, 0, 0.6); /* Fundo com filtro transparente */
+     color: #fff;
+     border: none;
+     border-radius: 8px;
+     overflow: hidden;
+     cursor: pointer;
+     transition: transform 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-decoration: none;
+   }
+   
+   .lista-jogos button:hover {
+     transform: scale(1.05);
+   }
+
+/* Define a transição suave para transformações */
+.lista-jogos button .button-content img {
+     transition: transform 0.3s ease;
+   }
+   
+   /* Define a animação de movimento para a direita e de volta */
+   @keyframes moveRightBack {
+     0% {
+       transform: translateX(0);
+     }
+     50% {
+       transform: translateX(200px); /* Move 50px para a direita */
+     }
+     100% {
+       transform: translateX(0); /* Volta ao ponto inicial */
+     }
+   }
+   
+   /* Aplica a animação quando o botão é hover */
+   .lista-jogos button:hover .button-content img {
+     animation: moveRightBack 10s linear infinite; /* Ajuste a duração conforme necessário */
+   }
+
+   .lista-jogos .button-content {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   
+   .lista-jogos .game-image {
+     width: auto;
+     height: 100%;
+     object-fit: cover;
+     filter: brightness(50%) contrast(120%); /* Aplica o filtro transparente espelhado */
+     margin: 0 2px; /* Espaçamento mínimo entre as imagens */
+   }
+   
+   .lista-jogos .button-text {
+     position: relative; /* Garante que o texto fique acima das imagens */
+     z-index: 1; /* Garante que o texto fique na frente das imagens */
+     font-size: 40px; /* Tamanho do texto */
+     font-weight: bold;
+     text-align: center;
+     color: #fff; /* Cor do texto */
+     text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+   }
+   
+   .lista-jogos .button-link {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-decoration: none;
+     color: transparent; /* Garante que o link seja clicável mas invisível */
+   }
+   

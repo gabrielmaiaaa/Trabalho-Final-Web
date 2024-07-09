@@ -1,0 +1,98 @@
+/* Estilos para a página inicial */
+.container {
+     display: flex;
+     position: relative;
+     max-width: 800px;
+     margin: 0 auto;
+     padding: 20px;
+   }
+   
+   /* Estilos para o símbolo no canto superior esquerdo */
+   .symbol {
+     position: fixed;
+     top: 20px;
+     left: 20px;
+     width: 40px;
+     height: 40px;
+     background-color: rgba(255, 255, 255, 0.5);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     z-index: 10; /* Garante que o símbolo esteja acima dos outros elementos */
+   }
+   
+   .symbol:hover {
+     background-color: rgba(255, 255, 255, 0.8);
+   }
+   
+   /* Estilos para o menu lateral */
+   .sidebar {
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 0;
+     background-color: rgba(0, 0, 0, 0.7);
+     overflow-x: hidden;
+     transition: 0.5s;
+     z-index: 9; /* Garante que o menu esteja abaixo do símbolo */
+   }
+   
+   .sidebar.open {
+     width: 20%; /* Define a largura do menu lateral */
+   }
+   
+   .options {
+     margin-top: 3.3rem;
+     padding: 20px;
+   }
+   
+   .options a {
+     display: block;
+     color: #fff;
+     text-decoration: none;
+     margin-bottom: 10px;
+     font-size: 18px;
+   }
+   
+   .options a:hover {
+     text-decoration: underline;
+   }
+   
+   /* Estilos para os botões de opção */
+   .option-buttons {
+     position: fixed;
+     top: 70px; /* Posiciona os botões um pouco abaixo do símbolo */
+     left: 0;
+     width: 20%;
+     background-color: rgba(255, 255, 255, 0.9);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+     z-index: 9;
+     padding: 20px;
+     display: none;
+   }
+   
+   .option-buttons.show {
+     display: block;
+   }
+   
+   .option-buttons button {
+     display: block;
+     margin-top: 10rem;
+     padding: 10rem 20rem;
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: background-color 0.3s ease;
+   }
+   
+   .option-buttons button:hover {
+     background-color: #0056b3;
+   }
+   

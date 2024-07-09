@@ -16,7 +16,7 @@
     "id": 4,
     "username": "caioba",
     "email": "caioba@gmail.com",
-    "password": "$2b$10$abQFfv9ToMRUTGovYGEkTOGIGZXHgVYNeF5.umTwxy/CIGSSzqsWW",
+    "password": "$2b$10$E9jgHraTJH.7EaSf7HQ7kOR79EFOA6KYUQHJZ95aVgSQ5VAy1C44C",
     "admin": 0
   },
   {
@@ -24,6 +24,13 @@
     "username": "samis",
     "email": "samis@hotmail.com",
     "password": "$2b$10$bfx1nhfYYuA1XwvXkluiSOQX7Z/5mlq0CjSAACuxfWTZCpVS0DYiu",
+    "admin": 0
+  },
+  {
+    "id": 5,
+    "username": "caioba2",
+    "email": "caioteodoro2012@gmail.com",
+    "password": "$2b$10$9snGqHx4AEscd0Bk6DWECeu2JLjBUw0CHENYFQYOkqxz/aQWnypxO",
     "admin": 0
   }
 ]
