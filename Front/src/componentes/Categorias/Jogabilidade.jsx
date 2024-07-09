@@ -46,7 +46,7 @@ export default function Jogabilidade() {
     acharJogo();
   }, [jogos])
 
-  const vote = async (gameId) => {
+  const vote = async (gameId, nome) => {
     const competicaoId = id;
 
     console.log("Dados enviados:", {
@@ -54,22 +54,24 @@ export default function Jogabilidade() {
       categoria,
       gameId
     });
-
-    try {
-      const response = await axios.post('http://localhost:3000/votar/votando', {
-        competicaoId,
-        categoria,
-        gameId
-      });
-
-      console.log("Resposta recebida:", response);
-
-      if (response.data.success) {
-        alert('Voto registrado com sucesso!');
+    let c = confirm(`Deseja votar em ${nome}`);
+    if(c === true){
+      try {
+        const response = await axios.post('http://localhost:3000/votar/votando', {
+          competicaoId,
+          categoria,
+          gameId
+        });
+  
+        console.log("Resposta recebida:", response);
+  
+        if (response.data.success) {
+          alert('Voto registrado com sucesso!');
+        }
+  
+      } catch (error) {
+        console.log('Erro:', error.response ? error.response.data : error.message);
       }
-
-    } catch (error) {
-      console.log('Erro:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -83,7 +85,7 @@ export default function Jogabilidade() {
     {
       jogo.map((game, index) => (
         
-        <button key={index} onClick={() => vote(index)}>
+        <button key={index} onClick={() => vote(index,game.name)}>
           <img src={game.image} alt={game.name} />
           <p>Votar</p>
         </button>

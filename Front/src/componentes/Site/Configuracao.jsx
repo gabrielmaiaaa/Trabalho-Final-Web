@@ -63,7 +63,7 @@ export default function Configuracao() {
         navigate(-1);
       }
     }catch (error){
-      console.log(error);
+      setMsg(error.estado.data);
     }
   }
 
@@ -71,7 +71,7 @@ export default function Configuracao() {
     let c = confirm(`Deseja excluir a conta ${username}?`);
     if(c === true){
       try {
-        const resposta = await axios.delete(`http://localhost:3000/auth/deletar/${email}`);
+        const resposta = await axios.delete(`http://localhost:3000/auth/deletar/${id}`);
         if(resposta.status === 200){
           setMsg('OK');
           navigate('/');
@@ -109,6 +109,7 @@ export default function Configuracao() {
   
       <button>Atualizar</button>
     </form>
+    <p className='server-response'>{msg}</p>
     <button onClick={handleDelete}>Excluir Perfil</button>
     <button onClick={handleBack}>Voltar</button>
     </>
