@@ -5,5 +5,12 @@
     "email": "gabrielmaia6743@gmail.com",
     "password": "$2b$10$4waSzwJxzk.fGRhnSA.idOLifTLON1rcj.Q3/HDtCuMkSNKSngcm2",
     "admin": 0
+  },
+  {
+    "id": 1720492860063,
+    "username": "caioba",
+    "email": "caioba@gmail.com",
+    "password": "$2b$10$S1Kliiv6POb6abSJ7GNrUORfhJWSZ0kpauRYopTIkqxkjv6DIX1m2",
+    "admin": 0
   }
 ]

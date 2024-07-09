@@ -7,7 +7,7 @@ function App() {
 
   return(
     <>
-      <h1>Bem Vindo ao Site de Apostas</h1>
+      <h1>Bem-vindo ao Site de Votações</h1>
       <div class="divisao">
         <div class="titulo">
           <img src={devinhoYeah} alt="Devinho Yeah" id="yeah"/>
