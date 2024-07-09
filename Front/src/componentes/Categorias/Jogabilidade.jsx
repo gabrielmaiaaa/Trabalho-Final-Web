@@ -7,7 +7,7 @@ export default function Jogabilidade() {
 
   const [jogo, setJogo] = useState([]);
 
-  const categoria = 'jogabilidade';
+  const categoria = 'Jogabilidade';
 
   const [authorized, setAuthorized] = useState(false);
 

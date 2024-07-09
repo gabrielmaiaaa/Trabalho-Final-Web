@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 export default function GameDesign() {
   const {id, titulo, descricao, url, jogos} = useLocation().state;
   const [jogo, setJogo] = useState([]);
-  const categoria = 'gameDesign';
+  const categoria = 'Game Design';
 
   const [authorized, setAuthorized] = useState(false);
 

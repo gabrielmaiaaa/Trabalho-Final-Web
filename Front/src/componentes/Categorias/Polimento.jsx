@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 export default function Polimento() {
   const {id, titulo, descricao, url, jogos} = useLocation().state
   const [jogo, setJogo] = useState([]);
-  const categoria = 'polimento';
+  const categoria = 'Polimento';
 
   const [authorized, setAuthorized] = useState(false);
 

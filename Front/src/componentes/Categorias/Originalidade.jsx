@@ -7,7 +7,7 @@ export default function Originalidade() {
 
   const [jogo, setJogo] = useState([]);
 
-  const categoria = 'originalidade';
+  const categoria = 'Originalidade';
 
   const [authorized, setAuthorized] = useState(false);
 

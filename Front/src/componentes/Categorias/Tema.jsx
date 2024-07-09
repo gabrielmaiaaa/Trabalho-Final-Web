@@ -7,7 +7,7 @@ export default function Tema() {
 
   const [jogo, setJogo] = useState([]);
 
-  const categoria = 'tema';  
+  const categoria = 'Tema';  
 
   const [authorized, setAuthorized] = useState(false);
 

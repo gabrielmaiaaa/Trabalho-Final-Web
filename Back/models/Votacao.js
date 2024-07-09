@@ -11,8 +11,6 @@ class Votacao {
         ];
     }        
 
- 
-
   registrarVoto(nomeCategoria, gameId) {
     const categoria = this.categorias.find(c => c.name === nomeCategoria);
     if (categoria) {
@@ -20,9 +18,9 @@ class Votacao {
         categoria.votos[gameId] = 0;
       }
       categoria.votos[gameId]++;
-      return true; // Indica que o voto foi registrado com sucesso
+      return true; 
     }
-    return false; // Categoria não encontrada
+    return false; 
   }
 
 }

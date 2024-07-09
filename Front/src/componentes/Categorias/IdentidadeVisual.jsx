@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 export default function IdentidadeVisual() {
   const {id, titulo, descricao, url, jogos} = useLocation().state
   const [jogo, setJogo] = useState([]);
-  const categoria = 'identidadeVisual';
+  const categoria = 'Identidade Visual';
 
   const [authorized, setAuthorized] = useState(false);
 
