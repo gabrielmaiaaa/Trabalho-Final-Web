@@ -62,7 +62,7 @@ export default function Configuracao() {
         navigate(-1);
       }
     } catch (error) {
-      console.log(error);
+      setMsg(error.estado.data);
     }
   };
 
@@ -123,10 +123,13 @@ export default function Configuracao() {
 
         <div className="button-group">
           <button>Atualizar</button>
+        </div>
+      </form>
+      <div className="button-group">
           <button onClick={handleDelete}>Excluir Perfil</button>
           <button onClick={handleBack}>Voltar</button>
         </div>
-      </form>
+      <p className='server-response'>{msg}</p>
     </div>
   );
 }
